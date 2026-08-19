@@ -4,13 +4,14 @@ import urllib.parse
 from datetime import datetime, timedelta
 import re
 
-# 1. API 키 처리
+# 1. 공공데이터포털 인증키 처리
 SERVICE_KEY = os.getenv("G2B_API_KEY", "").strip()
 if "%" in SERVICE_KEY:
     SERVICE_KEY = urllib.parse.unquote(SERVICE_KEY)
 
+# 2. 엔지코릭스 선행개발Lab 관심 키워드
 CATEGORY_RULES = {
-    "선행개발/AI": ["AI", "인공지능", "LLM", "딥러닝", "머신러닝", "알고리즘", "지능형"],
+    "선행개발/AI": ["AI", "인공지능", "LLM", "머신러닝", "알고리즘", "지능형"],
     "소부장/공정": ["소부장", "소재", "부품", "장비", "스마트", "공정", "반도체", "센서", "배터리", "이차전지", "제조"],
     "바이오/신소재": ["바이오", "헬스", "의료", "신소재", "화학"],
     "용역입찰": ["용역", "ISP", "구축", "유지보수", "플랫폼", "데이터", "시스템", "소프트웨어", "SW", "개발", "연구", "실증"]
@@ -47,7 +48,8 @@ def calculate_dday(close_dt_str):
 
 def fetch_real_bids():
     today = datetime.today()
-    start_date = (today - timedelta(days=14)).strftime("%Y%m%d0000")
+    # 최근 30일간 공고 조회
+    start_date = (today - timedelta(days=30)).strftime("%Y%m%d0000")
     end_date = today.strftime("%Y%m%d2359")
     
     url = "https://apis.data.go.kr/1230000/BidPublicInfoService04/getBidPblancListInfoServcPPSSrch01"
@@ -63,6 +65,7 @@ def fetch_real_bids():
     
     items = []
     if not SERVICE_KEY:
+        print("API 키가 설정되지 않았습니다.")
         return items
 
     try:
@@ -81,7 +84,7 @@ def fetch_real_bids():
                 category = classify_category(bid_name)
                 bid_no = item.get("bidNtceNo", "")
                 
-                # 메인 튕김 방지용 원문 검색 포털 링크 (가장 직관적으로 공고문 도달)
+                # 네이버 통합검색 직통 링크 (차세대 나라장터 리다이렉트 우회용)
                 search_query = urllib.parse.quote(f"나라장터 {bid_no} {bid_name}")
                 portal_url = f"https://search.naver.com/search.naver?query={search_query}"
 
@@ -121,7 +124,7 @@ def fetch_real_bids():
 
 def update_html():
     bids = fetch_real_bids()
-    print(f"수집된 공고: {len(bids)}건")
+    print(f"실제 공고 수집 결과: {len(bids)}건")
 
     template_file = "engicorix_tender_dashboard.html"
     if not os.path.exists(template_file):
@@ -134,17 +137,19 @@ def update_html():
     now_str = now.strftime("%Y-%m-%d %H:%M")
     week_str = f"{now.year}년 {now.month}월 {(now.day - 1) // 7 + 1}주차"
 
+    total_cnt = len(bids)
+    urgent_cnt = sum(1 for b in bids if "urgent" in b["dday_class"])
+    ai_cnt = sum(1 for b in bids if b["category"] in ["선행개발/AI", "소부장/공정"])
+
+    # 상단 메타데이터 치환
+    html = re.sub(r'class="value text-blue">.*?<span', f'class="value text-blue">{total_cnt} <span', html)
+    html = re.sub(r'class="value text-red">.*?<span', f'class="value text-red">{urgent_cnt} <span', html)
+    html = re.sub(r'color:var\(--accent-purple\);">(.*?)<span', f'color:var(--accent-purple);">{ai_cnt} <span', html)
+    html = re.sub(r'기준 주차:.*?</div>', f'기준 주차:</strong> {week_str}</div>', html)
+    html = re.sub(r'최근 동기화:.*?</div>', f'최근 동기화:</strong> {now_str} (매주 자동 갱신)</div>', html)
+
+    # 실제 수집된 공고 행 생성
     if bids:
-        total_cnt = len(bids)
-        urgent_cnt = sum(1 for b in bids if "urgent" in b["dday_class"])
-        ai_cnt = sum(1 for b in bids if b["category"] in ["선행개발/AI", "소부장/공정"])
-
-        html = re.sub(r'class="value text-blue">.*?<span', f'class="value text-blue">{total_cnt} <span', html)
-        html = re.sub(r'class="value text-red">.*?<span', f'class="value text-red">{urgent_cnt} <span', html)
-        html = re.sub(r'color:var\(--accent-purple\);">(.*?)<span', f'color:var(--accent-purple);">{ai_cnt} <span', html)
-        html = re.sub(r'기준 주차:.*?</div>', f'기준 주차:</strong> {week_str}</div>', html)
-        html = re.sub(r'최근 동기화:.*?</div>', f'최근 동기화:</strong> {now_str} (매주 자동 갱신)</div>', html)
-
         rows_html = ""
         for b in bids:
             rows_html += f"""
@@ -172,16 +177,24 @@ def update_html():
             <a href="{b['url']}" target="_blank" class="btn-action">공고문 열기 ↗</a>
           </td>
         </tr>"""
-        
-        html = re.sub(r'<tbody>.*?</tbody>', f'<tbody>{rows_html}\n      </tbody>', html, flags=re.DOTALL)
+    else:
+        rows_html = """
+        <tr>
+          <td colspan="5" style="text-align:center; padding:40px; color:#64748b;">
+            현재 수집된 신규 관심 공고가 없거나 API 동기화 중입니다.
+          </td>
+        </tr>"""
 
-    # JavaScript (복사 알림 + 필터링 + 검색 기능)
+    # 테이블 본문 교체
+    html = re.sub(r'<tbody>.*?</tbody>', f'<tbody>{rows_html}\n      </tbody>', html, flags=re.DOTALL)
+
+    # JavaScript 삽입
     js_script = """
 <script>
   function copyBidNo(text) {
     if (!text) return;
     navigator.clipboard.writeText(text).then(() => {
-      alert("공고번호 [" + text + "] 가 복사되었습니다!\\n나라장터 검색창에 붙여넣기(Ctrl+V)하세요.");
+      alert("공고번호 [" + text + "] 가 복사되었습니다!\\n나라장터에서 바로 검색하실 수 있습니다.");
     }).catch(() => {
       prompt("아래 공고번호를 복사하세요:", text);
     });
@@ -227,7 +240,7 @@ def update_html():
 
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(html)
-    print("완벽 대응 index.html 생성 완료!")
+    print("실제 공고 index.html 생성 완료!")
 
 if __name__ == "__main__":
     update_html()
