@@ -367,7 +367,7 @@
     </div>
     <div class="header-meta">
       <div><strong>기준 주차:</strong> 2026년 8월 3주차</div>
-      <div><strong>최근 동기화:</strong> 2026-08-19 06:17 (매주 자동 갱신)</div>
+      <div><strong>최근 동기화:</strong> 2026-08-19 09:00 (매주 자동 갱신)</div>
     </div>
   </header>
 
@@ -398,11 +398,11 @@
   <!-- Filter & Search Controls -->
   <div class="controls-bar">
     <div class="filter-tags">
-      <button class="tag-btn active" onclick="filterTable('all')">전체 보기 (24)</button>
-      <button class="tag-btn" onclick="filterTable('AI')"># 선행개발/AI</button>
-      <button class="tag-btn" onclick="filterTable('제조/소부장')"># 소부장/공정</button>
-      <button class="tag-btn" onclick="filterTable('바이오')"># 바이오/신소재</button>
-      <button class="tag-btn" onclick="filterTable('용역입찰')"># 용역입찰</button>
+      <button class="tag-btn active" onclick="filterTable('all', this)">전체 보기 (24)</button>
+      <button class="tag-btn" onclick="filterTable('선행개발/AI', this)"># 선행개발/AI</button>
+      <button class="tag-btn" onclick="filterTable('소부장/공정', this)"># 소부장/공정</button>
+      <button class="tag-btn" onclick="filterTable('바이오/신소재', this)"># 바이오/신소재</button>
+      <button class="tag-btn" onclick="filterTable('용역입찰', this)"># 용역입찰</button>
     </div>
     <input type="text" id="searchInput" class="search-input" placeholder="공고명, 기관명 검색..." onkeyup="searchTable()">
   </div>
@@ -534,15 +534,19 @@
   </footer>
 </div>
 
+
 <script>
-  function filterTable(category) {
+  function filterTable(category, btnElement) {
     const buttons = document.querySelectorAll('.tag-btn');
     buttons.forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
+    if (btnElement) {
+      btnElement.classList.add('active');
+    }
 
     const rows = document.querySelectorAll('#announcementTable tbody tr');
     rows.forEach(row => {
-      if (category === 'all' || row.getAttribute('data-category') === category) {
+      const rowCat = row.getAttribute('data-category');
+      if (category === 'all' || rowCat === category) {
         row.style.display = '';
       } else {
         row.style.display = 'none';
@@ -560,6 +564,7 @@
     });
   }
 </script>
+
 
 </body>
 </html>
