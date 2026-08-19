@@ -9,7 +9,7 @@ SERVICE_KEY = os.getenv("G2B_API_KEY", "").strip()
 if "%" in SERVICE_KEY:
     SERVICE_KEY = urllib.parse.unquote(SERVICE_KEY)
 
-# 2. 엔지코릭스 선행개발Lab 관심 키워드 및 카테고리 매핑 규칙
+# 2. 엔지코릭스 선행개발Lab 관심 키워드
 CATEGORY_RULES = {
     "선행개발/AI": ["AI", "인공지능", "LLM", "딥러닝", "머신러닝", "알고리즘", "지능형"],
     "소부장/공정": ["소부장", "소재", "부품", "장비", "스마트", "공정", "반도체", "센서", "배터리", "이차전지", "제조"],
@@ -80,16 +80,18 @@ def fetch_real_bids():
             
             if matched:
                 category = classify_category(bid_name)
-                
-                # 공고 상세페이지 직통 다이렉트 URL 생성
                 bid_no = item.get("bidNtceNo", "")
-                bid_ord = item.get("bidNtceOrd", "00")
+                
+                # 메인으로 튕기지 않는 나라장터 다이렉트 검색 URL 생성
                 if bid_no:
-                    direct_url = f"https://www.g2b.go.kr:8081/ep/invitation/publish/bidInfoDtl.do?bidno={bid_no}&bidseq={bid_ord}&releaseYn=Y&taskClCd=5"
+                    direct_url = f"https://www.g2b.go.kr:8081/ep/invitation/publish/bidInfoDtl.do?bidno={bid_no}&bidseq=00&releaseYn=Y&taskClCd=5"
+                    # 보조 검색 URL (나라장터 통합 공고명 검색)
+                    search_query = urllib.parse.quote(bid_name)
+                    search_url = f"https://www.g2b.go.kr/pt/menu/selectSubFrame.do?framesrc=/pt/menu/frameSub.do?url=https://www.g2b.go.kr:8081/ep/tbid/tbidList.do?bidNm={search_query}"
                 else:
-                    direct_url = item.get("bidNtceDtlUrl") or "https://www.g2b.go.kr"
+                    search_query = urllib.parse.quote(bid_name)
+                    direct_url = f"https://www.g2b.go.kr/pt/menu/selectSubFrame.do?framesrc=/pt/menu/frameSub.do?url=https://www.g2b.go.kr:8081/ep/tbid/tbidList.do?bidNm={search_query}"
 
-                # 예산 포맷팅
                 price = item.get("presmptPrce", 0)
                 try:
                     price_val = float(price)
@@ -107,6 +109,7 @@ def fetch_real_bids():
 
                 items.append({
                     "org": item.get("dminsttNm") or item.get("orderInsttNm") or "조달청",
+                    "bid_no": bid_no,
                     "category": category,
                     "cat_class": "cat-rd" if "AI" in category or "소부장" in category else "cat-bid",
                     "title": bid_name,
@@ -151,6 +154,9 @@ def update_html():
 
         rows_html = ""
         for b in bids:
+            # 공고 번호 뱃지 추가
+            bid_no_display = f"<div style='font-size:11px; color:#94a3b8; margin-top:2px;'>공고번호: {b['bid_no']}</div>" if b['bid_no'] else ""
+            
             rows_html += f"""
         <tr data-category="{b['category']}">
           <td>
@@ -162,6 +168,7 @@ def update_html():
               {b['title']}
             </a>
             <div class="tags-list">{b['tags']}</div>
+            {bid_no_display}
           </td>
           <td><strong>{b['budget']}</strong><br><span style="font-size:12px; color:#64748b;">{b['budget_sub']}</span></td>
           <td>
@@ -169,13 +176,13 @@ def update_html():
             <div style="font-size:12px; color:#64748b; margin-top:2px;">{b['close_date']}</div>
           </td>
           <td>
-            <a href="{b['url']}" target="_blank" class="btn-action">나라장터 공고문 ↗</a>
+            <a href="{b['url']}" target="_blank" class="btn-action">공고문 열기 ↗</a>
           </td>
         </tr>"""
         
         html = re.sub(r'<tbody>.*?</tbody>', f'<tbody>{rows_html}\n      </tbody>', html, flags=re.DOTALL)
 
-    # 인터랙션 기능(태그 필터 및 실시간 검색) JavaScript 보강
+    # 버튼 및 검색 자바스크립트 연결
     js_script = """
 <script>
   function filterTable(category, btnElement) {
@@ -207,7 +214,6 @@ def update_html():
   }
 </script>
 """
-    # 버튼 onclick 파라미터 보정
     html = html.replace("onclick=\"filterTable('all')\"", "onclick=\"filterTable('all', this)\"")
     html = html.replace("onclick=\"filterTable('AI')\"", "onclick=\"filterTable('선행개발/AI', this)\"")
     html = html.replace("onclick=\"filterTable('제조/소부장')\"", "onclick=\"filterTable('소부장/공정', this)\"")
@@ -219,7 +225,7 @@ def update_html():
 
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(html)
-    print("수정된 index.html 배포 준비 완료!")
+    print("나라장터 다이렉트 링크 반영 index.html 빌드 완료!")
 
 if __name__ == "__main__":
     update_html()
