@@ -9,7 +9,6 @@ SERVICE_KEY = os.getenv("G2B_API_KEY", "").strip()
 if "%" in SERVICE_KEY:
     SERVICE_KEY = urllib.parse.unquote(SERVICE_KEY)
 
-# 2. 엔지코릭스 선행개발Lab 관심 키워드
 CATEGORY_RULES = {
     "선행개발/AI": ["AI", "인공지능", "LLM", "딥러닝", "머신러닝", "알고리즘", "지능형"],
     "소부장/공정": ["소부장", "소재", "부품", "장비", "스마트", "공정", "반도체", "센서", "배터리", "이차전지", "제조"],
@@ -82,15 +81,9 @@ def fetch_real_bids():
                 category = classify_category(bid_name)
                 bid_no = item.get("bidNtceNo", "")
                 
-                # 메인으로 튕기지 않는 나라장터 다이렉트 검색 URL 생성
-                if bid_no:
-                    direct_url = f"https://www.g2b.go.kr:8081/ep/invitation/publish/bidInfoDtl.do?bidno={bid_no}&bidseq=00&releaseYn=Y&taskClCd=5"
-                    # 보조 검색 URL (나라장터 통합 공고명 검색)
-                    search_query = urllib.parse.quote(bid_name)
-                    search_url = f"https://www.g2b.go.kr/pt/menu/selectSubFrame.do?framesrc=/pt/menu/frameSub.do?url=https://www.g2b.go.kr:8081/ep/tbid/tbidList.do?bidNm={search_query}"
-                else:
-                    search_query = urllib.parse.quote(bid_name)
-                    direct_url = f"https://www.g2b.go.kr/pt/menu/selectSubFrame.do?framesrc=/pt/menu/frameSub.do?url=https://www.g2b.go.kr:8081/ep/tbid/tbidList.do?bidNm={search_query}"
+                # 메인 튕김 방지용 원문 검색 포털 링크 (가장 직관적으로 공고문 도달)
+                search_query = urllib.parse.quote(f"나라장터 {bid_no} {bid_name}")
+                portal_url = f"https://search.naver.com/search.naver?query={search_query}"
 
                 price = item.get("presmptPrce", 0)
                 try:
@@ -119,7 +112,7 @@ def fetch_real_bids():
                     "close_date": close_dt,
                     "dday_text": dday_label,
                     "dday_class": dday_class,
-                    "url": direct_url
+                    "url": portal_url
                 })
     except Exception as e:
         print(f"공고 수집 예외: {e}")
@@ -154,9 +147,6 @@ def update_html():
 
         rows_html = ""
         for b in bids:
-            # 공고 번호 뱃지 추가
-            bid_no_display = f"<div style='font-size:11px; color:#94a3b8; margin-top:2px;'>공고번호: {b['bid_no']}</div>" if b['bid_no'] else ""
-            
             rows_html += f"""
         <tr data-category="{b['category']}">
           <td>
@@ -168,7 +158,10 @@ def update_html():
               {b['title']}
             </a>
             <div class="tags-list">{b['tags']}</div>
-            {bid_no_display}
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">{b['bid_no']}</strong> 
+              <button onclick="copyBidNo('{b['bid_no']}')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
           </td>
           <td><strong>{b['budget']}</strong><br><span style="font-size:12px; color:#64748b;">{b['budget_sub']}</span></td>
           <td>
@@ -182,9 +175,18 @@ def update_html():
         
         html = re.sub(r'<tbody>.*?</tbody>', f'<tbody>{rows_html}\n      </tbody>', html, flags=re.DOTALL)
 
-    # 버튼 및 검색 자바스크립트 연결
+    # JavaScript (복사 알림 + 필터링 + 검색 기능)
     js_script = """
 <script>
+  function copyBidNo(text) {
+    if (!text) return;
+    navigator.clipboard.writeText(text).then(() => {
+      alert("공고번호 [" + text + "] 가 복사되었습니다!\\n나라장터 검색창에 붙여넣기(Ctrl+V)하세요.");
+    }).catch(() => {
+      prompt("아래 공고번호를 복사하세요:", text);
+    });
+  }
+
   function filterTable(category, btnElement) {
     const buttons = document.querySelectorAll('.tag-btn');
     buttons.forEach(btn => btn.classList.remove('active'));
@@ -225,7 +227,7 @@ def update_html():
 
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(html)
-    print("나라장터 다이렉트 링크 반영 index.html 빌드 완료!")
+    print("완벽 대응 index.html 생성 완료!")
 
 if __name__ == "__main__":
     update_html()

@@ -536,6 +536,16 @@
 
 
 <script>
+  function copyBidNo(text) {
+    if (!text) return;
+    navigator.clipboard.writeText(text).then(() => {
+      alert("공고번호 [" + text + "] 가 복사되었습니다!
+나라장터 검색창에 붙여넣기(Ctrl+V)하세요.");
+    }).catch(() => {
+      prompt("아래 공고번호를 복사하세요:", text);
+    });
+  }
+
   function filterTable(category, btnElement) {
     const buttons = document.querySelectorAll('.tag-btn');
     buttons.forEach(btn => btn.classList.remove('active'));
