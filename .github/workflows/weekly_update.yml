@@ -4,17 +4,20 @@ on:
   schedule:
     # 매주 월요일 한국시간 08:00 (UTC 일요일 23:00) 자동 실행
     - cron: '0 23 * * 0'
-  workflow_dispatch: # 수동으로 즉시 갱신하고 싶을 때 누르는 버튼
+  workflow_dispatch: # 수동 실행 버튼
+
+permissions:
+  contents: write
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
@@ -29,7 +32,7 @@ jobs:
           python update_tender.py
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./
