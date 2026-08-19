@@ -4,13 +4,26 @@ import urllib.parse
 from datetime import datetime, timedelta
 import re
 
-# 1. API 키 처리 (Decoding/Encoding 키 대응)
+# 1. API 키 처리
 SERVICE_KEY = os.getenv("G2B_API_KEY", "").strip()
 if "%" in SERVICE_KEY:
     SERVICE_KEY = urllib.parse.unquote(SERVICE_KEY)
 
-# 2. 엔지코릭스 관심 키워드
-KEYWORDS = ["AI", "인공지능", "플랫폼", "데이터", "스마트", "소부장", "센서", "반도체", "개발", "실증", "연구", "소프트웨어", "시스템"]
+# 2. 엔지코릭스 선행개발Lab 관심 키워드 및 카테고리 매핑 규칙
+CATEGORY_RULES = {
+    "선행개발/AI": ["AI", "인공지능", "LLM", "딥러닝", "머신러닝", "알고리즘", "지능형"],
+    "소부장/공정": ["소부장", "소재", "부품", "장비", "스마트", "공정", "반도체", "센서", "배터리", "이차전지", "제조"],
+    "바이오/신소재": ["바이오", "헬스", "의료", "신소재", "화학"],
+    "용역입찰": ["용역", "ISP", "구축", "유지보수", "플랫폼", "데이터", "시스템", "소프트웨어", "SW", "개발", "연구", "실증"]
+}
+
+ALL_KEYWORDS = [kw for kws in CATEGORY_RULES.values() for kw in kws]
+
+def classify_category(title):
+    for cat, kws in CATEGORY_RULES.items():
+        if any(k.lower() in title.lower() for k in kws):
+            return cat
+    return "용역입찰"
 
 def calculate_dday(close_dt_str):
     try:
@@ -51,7 +64,6 @@ def fetch_real_bids():
     
     items = []
     if not SERVICE_KEY:
-        print("경고: G2B_API_KEY가 비어있습니다.")
         return items
 
     try:
@@ -64,8 +76,20 @@ def fetch_real_bids():
 
         for item in raw_items:
             bid_name = item.get("bidNtceNm", "")
-            matched = [k for k in KEYWORDS if k.lower() in bid_name.lower()]
+            matched = [k for k in ALL_KEYWORDS if k.lower() in bid_name.lower()]
+            
             if matched:
+                category = classify_category(bid_name)
+                
+                # 공고 상세페이지 직통 다이렉트 URL 생성
+                bid_no = item.get("bidNtceNo", "")
+                bid_ord = item.get("bidNtceOrd", "00")
+                if bid_no:
+                    direct_url = f"https://www.g2b.go.kr:8081/ep/invitation/publish/bidInfoDtl.do?bidno={bid_no}&bidseq={bid_ord}&releaseYn=Y&taskClCd=5"
+                else:
+                    direct_url = item.get("bidNtceDtlUrl") or "https://www.g2b.go.kr"
+
+                # 예산 포맷팅
                 price = item.get("presmptPrce", 0)
                 try:
                     price_val = float(price)
@@ -74,43 +98,38 @@ def fetch_real_bids():
                     elif price_val > 0:
                         budget_str = f"{int(price_val / 10000):,} 만원"
                     else:
-                        budget_str = "사업비 규격서 참조"
+                        budget_str = "규격서 참조"
                 except Exception:
-                    budget_str = "사업비 규격서 참조"
+                    budget_str = "규격서 참조"
 
                 close_dt = item.get("bidClseDt", "-")
                 dday_label, dday_class = calculate_dday(close_dt)
 
                 items.append({
                     "org": item.get("dminsttNm") or item.get("orderInsttNm") or "조달청",
-                    "category": "용역입찰",
-                    "cat_class": "cat-bid",
+                    "category": category,
+                    "cat_class": "cat-rd" if "AI" in category or "소부장" in category else "cat-bid",
                     "title": bid_name,
-                    "tags": " ".join([f"#{k}" for k in matched[:4]]) or "#선행기술",
+                    "tags": " ".join([f"#{k}" for k in matched[:4]]),
                     "budget": budget_str,
-                    "budget_sub": "(추정가격 기준)",
+                    "budget_sub": "(추정가격)",
                     "close_date": close_dt,
                     "dday_text": dday_label,
                     "dday_class": dday_class,
-                    "url": item.get("bidNtceDtlUrl") or "https://www.g2b.go.kr"
+                    "url": direct_url
                 })
     except Exception as e:
-        print(f"API 요청/파싱 예외 발생 (기본 템플릿 유지 모드로 진행): {e}")
+        print(f"공고 수집 예외: {e}")
         
     return items
 
 def update_html():
     bids = fetch_real_bids()
-    print(f"관심 공고 수집 결과: {len(bids)}건")
-    
-    # 템플릿 파일 탐색 (둘 중 존재하는 파일 자동 선택)
+    print(f"수집된 공고: {len(bids)}건")
+
     template_file = "engicorix_tender_dashboard.html"
     if not os.path.exists(template_file):
         template_file = "index.html"
-        
-    if not os.path.exists(template_file):
-        print(f"에러: {template_file}을 찾을 수 없습니다.")
-        return
 
     with open(template_file, "r", encoding="utf-8") as f:
         html = f.read()
@@ -122,7 +141,7 @@ def update_html():
     if bids:
         total_cnt = len(bids)
         urgent_cnt = sum(1 for b in bids if "urgent" in b["dday_class"])
-        ai_cnt = sum(1 for b in bids if "AI" in b["tags"] or "인공지능" in b["tags"])
+        ai_cnt = sum(1 for b in bids if b["category"] in ["선행개발/AI", "소부장/공정"])
 
         html = re.sub(r'class="value text-blue">.*?<span', f'class="value text-blue">{total_cnt} <span', html)
         html = re.sub(r'class="value text-red">.*?<span', f'class="value text-red">{urgent_cnt} <span', html)
@@ -135,7 +154,7 @@ def update_html():
             rows_html += f"""
         <tr data-category="{b['category']}">
           <td>
-            <span class="badge-org">{b['org'][:12]}</span>
+            <span class="badge-org">{b['org'][:10]}</span>
             <span class="badge-category {b['cat_class']}">{b['category']}</span>
           </td>
           <td class="title-cell">
@@ -155,14 +174,52 @@ def update_html():
         </tr>"""
         
         html = re.sub(r'<tbody>.*?</tbody>', f'<tbody>{rows_html}\n      </tbody>', html, flags=re.DOTALL)
-    else:
-        # 실시간 데이터 수집 전이어도 시간 정보는 갱신
-        html = re.sub(r'최근 동기화:.*?</div>', f'최근 동기화:</strong> {now_str} (매주 자동 갱신)</div>', html)
 
-    # index.html로 최종 저장
+    # 인터랙션 기능(태그 필터 및 실시간 검색) JavaScript 보강
+    js_script = """
+<script>
+  function filterTable(category, btnElement) {
+    const buttons = document.querySelectorAll('.tag-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    if (btnElement) {
+      btnElement.classList.add('active');
+    }
+
+    const rows = document.querySelectorAll('#announcementTable tbody tr');
+    rows.forEach(row => {
+      const rowCat = row.getAttribute('data-category');
+      if (category === 'all' || rowCat === category) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+
+  function searchTable() {
+    const input = document.getElementById('searchInput').value.toLowerCase();
+    const rows = document.querySelectorAll('#announcementTable tbody tr');
+
+    rows.forEach(row => {
+      const text = row.innerText.toLowerCase();
+      row.style.display = text.includes(input) ? '' : 'none';
+    });
+  }
+</script>
+"""
+    # 버튼 onclick 파라미터 보정
+    html = html.replace("onclick=\"filterTable('all')\"", "onclick=\"filterTable('all', this)\"")
+    html = html.replace("onclick=\"filterTable('AI')\"", "onclick=\"filterTable('선행개발/AI', this)\"")
+    html = html.replace("onclick=\"filterTable('제조/소부장')\"", "onclick=\"filterTable('소부장/공정', this)\"")
+    html = html.replace("onclick=\"filterTable('바이오')\"", "onclick=\"filterTable('바이오/신소재', this)\"")
+    html = html.replace("onclick=\"filterTable('용역입찰')\"", "onclick=\"filterTable('용역입찰', this)\"")
+
+    if "<script>" in html:
+        html = re.sub(r'<script>.*?</script>', js_script, html, flags=re.DOTALL)
+
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(html)
-    print("index.html 정상 빌드 완료!")
+    print("수정된 index.html 배포 준비 완료!")
 
 if __name__ == "__main__":
     update_html()
