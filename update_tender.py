@@ -4,18 +4,16 @@ import urllib.parse
 from datetime import datetime, timedelta
 import re
 
-# 1. API 키 디코딩 처리 (requests의 자동 파라미터 인코딩 대응)
+# 1. API 키 처리
 RAW_KEY = os.getenv("G2B_API_KEY", "").strip()
 SERVICE_KEY = urllib.parse.unquote(RAW_KEY)
 
-# 2. 관심 키워드
 CATEGORY_RULES = {
     "선행개발/AI": ["AI", "인공지능", "LLM", "머신러닝", "알고리즘", "지능형", "데이터", "플랫폼"],
     "소부장/공정": ["소부장", "소재", "부품", "장비", "스마트", "공정", "반도체", "센서", "배터리", "이차전지", "제조"],
     "바이오/신소재": ["바이오", "헬스", "의료", "신소재", "화학"],
     "용역입찰": ["용역", "ISP", "구축", "유지보수", "시스템", "소프트웨어", "SW", "개발", "연구", "실증", "기획"]
 }
-
 ALL_KEYWORDS = [kw for kws in CATEGORY_RULES.values() for kw in kws]
 
 def classify_category(title):
@@ -31,62 +29,58 @@ def calculate_dday(close_dt_str):
             close_date = datetime.strptime(clean_str, "%Y%m%d").date()
             today = datetime.now().date()
             diff = (close_date - today).days
-            if diff < 0:
-                return "마감", "dday-urgent"
-            elif diff == 0:
-                return "D-Day", "dday-urgent"
-            elif diff <= 7:
-                return f"D-{diff}", "dday-urgent"
-            elif diff <= 14:
-                return f"D-{diff}", "dday-normal"
-            else:
-                return f"D-{diff}", "dday-safe"
+            if diff < 0: return "마감", "dday-urgent"
+            elif diff == 0: return "D-Day", "dday-urgent"
+            elif diff <= 7: return f"D-{diff}", "dday-urgent"
+            elif diff <= 14: return f"D-{diff}", "dday-normal"
+            else: return f"D-{diff}", "dday-safe"
     except Exception:
         pass
     return "진행중", "dday-safe"
 
 def fetch_g2b_data():
     today = datetime.today()
-    # 30일 대신 최근 7일치로 축소하여 타임아웃 방지
+    # 해외 서버 타임아웃 방지를 위해 조회 기간을 최근 7일로 압축
     start_date = (today - timedelta(days=7)).strftime("%Y%m%d0000")
     end_date = today.strftime("%Y%m%d2359")
     
-    # 조달청 입찰공고정보서비스 엔드포인트
+    # https:// 대신 http:// 사용 (해외 클라우드 SSL 핸드셰이크 차단 우회)
     urls = [
-        "https://apis.data.go.kr/1230000/BidPublicInfoService04/getBidPblancListInfoServcPPSSrch01",
-        "https://apis.data.go.kr/1230000/ad/BidPublicInfoService/getBidPblancListInfoServcPPSSrch"
+        "http://apis.data.go.kr/1230000/BidPublicInfoService04/getBidPblancListInfoServcPPSSrch01",
+        "http://apis.data.go.kr/1230000/ad/BidPublicInfoService/getBidPblancListInfoServcPPSSrch"
     ]
     
     items = []
     if not SERVICE_KEY:
-        print("❌ [경고] G2B_API_KEY 환경변수가 비어있습니다.")
+        print("❌ [경고] G2B_API_KEY 환경변수가 설정되지 않았습니다.")
         return items
 
+    session = requests.Session()
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-        "Accept": "application/json"
+        "Accept": "application/json, text/xml, */*"
     }
 
     for url in urls:
         try:
             params = {
                 "serviceKey": SERVICE_KEY,
-                "numOfRows": "50", # 조회 건수를 50건으로 조절하여 응답 속도 확보
+                "numOfRows": "30",
                 "pageNo": "1",
                 "inqryDiv": "1",
                 "inqryBgnDt": start_date,
                 "inqryEndDt": end_date,
                 "type": "json"
             }
-            # timeout을 30초로 증가
-            res = requests.get(url, params=params, headers=headers, timeout=30)
+            print(f"🔄 데이터 요청 시도: {url}")
+            res = session.get(url, params=params, headers=headers, timeout=20)
             
             if res.status_code != 200:
-                print(f"⚠️ HTTP 상태코드 {res.status_code}: {url}")
+                print(f"⚠️ 상태 코드 {res.status_code}: {res.text[:100]}")
                 continue
 
             if not res.text.strip().startswith("{"):
-                print(f"⚠️ JSON 형식이 아님:\n{res.text[:200]}")
+                print(f"⚠️ JSON 응답 아님: {res.text[:150]}")
                 continue
 
             data = res.json()
@@ -138,20 +132,19 @@ def fetch_g2b_data():
             if items:
                 break
         except Exception as e:
-            print(f"API 요청 예외 발생 ({url}): {e}")
+            print(f"⚠️ 요청 실패: {e}")
 
     return items
 
 def update_html():
     bids = fetch_g2b_data()
-    print(f"실제 공고 수집 결과: {len(bids)}건")
+    print(f"📊 수집된 공고 개수: {len(bids)}건")
 
-    target_file = "index.html"
-    if not os.path.exists(target_file):
-        print("[에러] index.html 파일이 없습니다.")
+    if not os.path.exists("index.html"):
+        print("❌ index.html 파일이 존재하지 않습니다.")
         return
 
-    with open(target_file, "r", encoding="utf-8") as f:
+    with open("index.html", "r", encoding="utf-8") as f:
         html = f.read()
 
     now = datetime.now()
@@ -162,14 +155,16 @@ def update_html():
     urgent_cnt = sum(1 for b in bids if "urgent" in b["dday_class"])
     ai_cnt = sum(1 for b in bids if b["category"] in ["선행개발/AI", "소부장/공정"])
 
-    # 상단 지표 및 메타 정보 갱신 (정규식 패턴 보정)
-    html = re.sub(r'(class="value text-blue">)\s*[\d\.]+\s*(<span)', rf'\g<1>{total_cnt} \g<2>', html)
-    html = re.sub(r'(class="value text-red">)\s*[\d\.]+\s*(<span)', rf'\g<1>{urgent_cnt} \g<2>', html)
-    html = re.sub(r'(color:var\(--accent-purple\);">\s*)[\d\.]+(\s*<span)', rf'\g<1>{ai_cnt}\g<2>', html)
-    html = re.sub(r'<div><strong>기준 주차:</strong>.*?</div>', f'<div><strong>기준 주차:</strong> {week_str}</div>', html)
-    html = re.sub(r'<div><strong>최근 동기화:</strong>.*?</div>', f'<div><strong>최근 동기화:</strong> {now_str} (매주 자동 갱신)</div>', html)
+    # 상단 지표 영역 강제 업데이트 (24, 6, 148.5 등 더미 수치 완전 제거)
+    html = re.sub(r'(class="value text-blue">)[^<]+(<span)', rf'\g<1>{total_cnt} \g<2>', html)
+    html = re.sub(r'(class="value text-red">)[^<]+(<span)', rf'\g<1>{urgent_cnt} \g<2>', html)
+    html = re.sub(r'(class="value text-green">)[^<]+(<span)', r'\g<1>- \g<2>', html)
+    html = re.sub(r'(color:var\(--accent-purple\);">)[^<]+(<span)', rf'\g<1>{ai_cnt} \g<2>', html)
+    
+    html = re.sub(r'<strong>기준 주차:</strong>.*?</div>', f'<strong>기준 주차:</strong> {week_str}</div>', html)
+    html = re.sub(r'<strong>최근 동기화:</strong>.*?</div>', f'<strong>최근 동기화:</strong> {now_str} (자동 갱신)</div>', html)
 
-    # 테이블 행 생성
+    # 테이블 데이터 생성
     if bids:
         rows_html = ""
         for b in bids:
@@ -202,15 +197,15 @@ def update_html():
         rows_html = """
         <tr>
           <td colspan="5" style="text-align:center; padding:40px; color:#64748b;">
-            현재 수집된 신규 관심 공고가 없거나 공공데이터포털 동기화 중입니다.
+            현재 수집된 신규 관심 공고가 없거나 공공데이터포털 연동 중입니다.
           </td>
         </tr>"""
 
-    html = re.sub(r'<tbody>.*?</tbody>', f'<tbody>{rows_html}\n      </tbody>', html, flags=re.DOTALL)
+    html = re.sub(r'<tbody>[\s\S]*?</tbody>', f'<tbody>{rows_html}\n      </tbody>', html)
 
-    with open(target_file, "w", encoding="utf-8") as f:
+    with open("index.html", "w", encoding="utf-8") as f:
         f.write(html)
-    print("배포 완료!")
+    print("✅ index.html 갱신 완료!")
 
 if __name__ == "__main__":
     update_html()
