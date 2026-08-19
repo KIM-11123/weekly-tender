@@ -3,14 +3,12 @@ import requests
 import urllib.parse
 from datetime import datetime, timedelta
 import re
-import xml.etree.ElementTree as ET
 
-# 1. API 키 처리
-SERVICE_KEY = os.getenv("G2B_API_KEY", "").strip()
-if "%" in SERVICE_KEY:
-    SERVICE_KEY = urllib.parse.unquote(SERVICE_KEY)
+# 1. API 키 디코딩 처리 (requests의 자동 파라미터 인코딩 대응)
+RAW_KEY = os.getenv("G2B_API_KEY", "").strip()
+SERVICE_KEY = urllib.parse.unquote(RAW_KEY)
 
-# 2. 엔지코릭스 선행개발Lab 관심 키워드
+# 2. 관심 키워드
 CATEGORY_RULES = {
     "선행개발/AI": ["AI", "인공지능", "LLM", "머신러닝", "알고리즘", "지능형", "데이터", "플랫폼"],
     "소부장/공정": ["소부장", "소재", "부품", "장비", "스마트", "공정", "반도체", "센서", "배터리", "이차전지", "제조"],
@@ -52,7 +50,7 @@ def fetch_g2b_data():
     start_date = (today - timedelta(days=30)).strftime("%Y%m%d0000")
     end_date = today.strftime("%Y%m%d2359")
     
-    # 조달청 나라장터 최신/구버전 엔드포인트 동시 대응
+    # 조달청 입찰공고정보서비스 용역 조회 엔드포인트
     urls = [
         "https://apis.data.go.kr/1230000/BidPublicInfoService04/getBidPblancListInfoServcPPSSrch01",
         "https://apis.data.go.kr/1230000/ad/BidPublicInfoService/getBidPblancListInfoServcPPSSrch"
@@ -60,6 +58,7 @@ def fetch_g2b_data():
     
     items = []
     if not SERVICE_KEY:
+        print("[경고] G2B_API_KEY 환경변수가 설정되지 않았습니다.")
         return items
 
     for url in urls:
@@ -75,58 +74,65 @@ def fetch_g2b_data():
             }
             res = requests.get(url, params=params, timeout=10)
             
-            # JSON 응답 파싱
-            if "application/json" in res.headers.get("Content-Type", "") or res.text.strip().startswith("{"):
-                data = res.json()
-                raw_items = data.get("response", {}).get("body", {}).get("items", [])
-                if isinstance(raw_items, dict):
-                    raw_items = raw_items.get("item", [])
-                if isinstance(raw_items, dict):
-                    raw_items = [raw_items]
+            # API 응답 검증
+            if res.status_code != 200:
+                print(f"[HTTP 에러] {res.status_code}: {url}")
+                continue
 
-                for item in raw_items:
-                    bid_name = item.get("bidNtceNm", "")
-                    matched = [k for k in ALL_KEYWORDS if k.lower() in bid_name.lower()]
-                    if matched:
-                        category = classify_category(bid_name)
-                        bid_no = item.get("bidNtceNo", "")
-                        search_query = urllib.parse.quote(f"나라장터 {bid_no} {bid_name}")
-                        portal_url = f"https://search.naver.com/search.naver?query={search_query}"
+            if not res.text.strip().startswith("{"):
+                print(f"[응답 오류/인증 에러] XML/Text 반환됨: {res.text[:150]}")
+                continue
 
-                        price = item.get("presmptPrce", 0)
-                        try:
-                            price_val = float(price)
-                            if price_val >= 100000000:
-                                budget_str = f"{price_val / 100000000:.1f} 억원"
-                            elif price_val > 0:
-                                budget_str = f"{int(price_val / 10000):,} 만원"
-                            else:
-                                budget_str = "규격서 참조"
-                        except Exception:
+            data = res.json()
+            raw_items = data.get("response", {}).get("body", {}).get("items", [])
+            if isinstance(raw_items, dict):
+                raw_items = raw_items.get("item", [])
+            if isinstance(raw_items, dict):
+                raw_items = [raw_items]
+
+            for item in raw_items:
+                bid_name = item.get("bidNtceNm", "")
+                matched = [k for k in ALL_KEYWORDS if k.lower() in bid_name.lower()]
+                if matched:
+                    category = classify_category(bid_name)
+                    bid_no = item.get("bidNtceNo", "")
+                    search_query = urllib.parse.quote(f"나라장터 {bid_no} {bid_name}")
+                    portal_url = f"https://search.naver.com/search.naver?query={search_query}"
+
+                    price = item.get("presmptPrce", 0)
+                    try:
+                        price_val = float(price)
+                        if price_val >= 100000000:
+                            budget_str = f"{price_val / 100000000:.1f} 억원"
+                        elif price_val > 0:
+                            budget_str = f"{int(price_val / 10000):,} 만원"
+                        else:
                             budget_str = "규격서 참조"
+                    except Exception:
+                        budget_str = "규격서 참조"
 
-                        close_dt = item.get("bidClseDt", "-")
-                        dday_label, dday_class = calculate_dday(close_dt)
+                    close_dt = item.get("bidClseDt", "-")
+                    dday_label, dday_class = calculate_dday(close_dt)
 
-                        items.append({
-                            "org": item.get("dminsttNm") or item.get("orderInsttNm") or "조달청",
-                            "bid_no": bid_no,
-                            "category": category,
-                            "cat_class": "cat-rd" if "AI" in category or "소부장" in category else "cat-bid",
-                            "title": bid_name,
-                            "tags": " ".join([f"#{k}" for k in matched[:4]]),
-                            "budget": budget_str,
-                            "budget_sub": "(추정가격)",
-                            "close_date": close_dt,
-                            "dday_text": dday_label,
-                            "dday_class": dday_class,
-                            "url": portal_url
-                        })
+                    items.append({
+                        "org": item.get("dminsttNm") or item.get("orderInsttNm") or "조달청",
+                        "bid_no": bid_no,
+                        "category": category,
+                        "cat_class": "cat-rd" if "AI" in category or "소부장" in category else "cat-bid",
+                        "title": bid_name,
+                        "tags": " ".join([f"#{k}" for k in matched[:4]]),
+                        "budget": budget_str,
+                        "budget_sub": "(추정가격)",
+                        "close_date": close_dt,
+                        "dday_text": dday_label,
+                        "dday_class": dday_class,
+                        "url": portal_url
+                    })
             
             if items:
                 break
         except Exception as e:
-            print(f"API 요청 실패 ({url}): {e}")
+            print(f"API 요청 예외 발생 ({url}): {e}")
 
     return items
 
@@ -134,11 +140,12 @@ def update_html():
     bids = fetch_g2b_data()
     print(f"실제 공고 수집 결과: {len(bids)}건")
 
-    template_file = "engicorix_tender_dashboard.html"
-    if not os.path.exists(template_file):
-        template_file = "index.html"
+    target_file = "index.html"
+    if not os.path.exists(target_file):
+        print("[에러] index.html 파일이 없습니다.")
+        return
 
-    with open(template_file, "r", encoding="utf-8") as f:
+    with open(target_file, "r", encoding="utf-8") as f:
         html = f.read()
 
     now = datetime.now()
@@ -149,12 +156,12 @@ def update_html():
     urgent_cnt = sum(1 for b in bids if "urgent" in b["dday_class"])
     ai_cnt = sum(1 for b in bids if b["category"] in ["선행개발/AI", "소부장/공정"])
 
-    # 상단 숫자 카드 동기화
-    html = re.sub(r'class="value text-blue">.*?<span', f'class="value text-blue">{total_cnt} <span', html)
-    html = re.sub(r'class="value text-red">.*?<span', f'class="value text-red">{urgent_cnt} <span', html)
-    html = re.sub(r'color:var\(--accent-purple\);">(.*?)<span', f'color:var(--accent-purple);">{ai_cnt} <span', html)
-    html = re.sub(r'기준 주차:.*?</div>', f'기준 주차:</strong> {week_str}</div>', html)
-    html = re.sub(r'최근 동기화:.*?</div>', f'최근 동기화:</strong> {now_str} (매주 자동 갱신)</div>', html)
+    # 상단 지표 및 메타 정보 갱신 (정규식 패턴 보정)
+    html = re.sub(r'(class="value text-blue">)\s*[\d\.]+\s*(<span)', rf'\g<1>{total_cnt} \g<2>', html)
+    html = re.sub(r'(class="value text-red">)\s*[\d\.]+\s*(<span)', rf'\g<1>{urgent_cnt} \g<2>', html)
+    html = re.sub(r'(color:var\(--accent-purple\);">\s*)[\d\.]+(\s*<span)', rf'\g<1>{ai_cnt}\g<2>', html)
+    html = re.sub(r'<div><strong>기준 주차:</strong>.*?</div>', f'<div><strong>기준 주차:</strong> {week_str}</div>', html)
+    html = re.sub(r'<div><strong>최근 동기화:</strong>.*?</div>', f'<div><strong>최근 동기화:</strong> {now_str} (매주 자동 갱신)</div>', html)
 
     # 테이블 행 생성
     if bids:
@@ -195,7 +202,7 @@ def update_html():
 
     html = re.sub(r'<tbody>.*?</tbody>', f'<tbody>{rows_html}\n      </tbody>', html, flags=re.DOTALL)
 
-    with open("index.html", "w", encoding="utf-8") as f:
+    with open(target_file, "w", encoding="utf-8") as f:
         f.write(html)
     print("배포 완료!")
 
