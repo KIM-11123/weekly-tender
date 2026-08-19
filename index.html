@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ENGICORIX 주간 국책과제 & 입찰공고 트렌드 브리핑</title>
+  <style>
+    :root {
+      --bg-main: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --primary: #10b981;
+      --primary-dark: #0f766e;
+      --primary-light: #ecfdf5;
+      --accent-red: #ef4444;
+      --accent-blue: #2563eb;
+      --accent-amber: #f59e0b;
+      --accent-purple: #8b5cf6;
+      --border: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Pretendard", sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      padding: 30px 20px;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Top Brand Bar */
+    .brand-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 22px;
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      margin-bottom: 22px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo img {
+      height: 38px;
+      object-fit: contain;
+    }
+
+    .author-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #f1f5f9;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      color: #334155;
+      font-weight: 600;
+    }
+
+    .author-badge .dot {
+      width: 8px;
+      height: 8px;
+      background-color: #10b981;
+      border-radius: 50%;
+    }
+
+    /* Header */
+    header {
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-title h1 {
+      font-size: 24px;
+      font-weight: 800;
+      color: #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge-live {
+      font-size: 12px;
+      background-color: #d1fae5;
+      color: #065f46;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: 700;
+    }
+
+    .header-title p {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .header-meta {
+      text-align: right;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Summary Stats */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+
+    .stat-card .label {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .stat-card .value {
+      font-size: 24px;
+      font-weight: 800;
+      color: #1e293b;
+    }
+
+    .stat-card .sub {
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    .text-red { color: var(--accent-red); }
+    .text-blue { color: var(--accent-blue); }
+    .text-green { color: #10b981; }
+
+    /* Controls / Filter */
+    .controls-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--card-bg);
+      padding: 15px 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      margin-bottom: 20px;
+    }
+
+    .filter-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tag-btn {
+      background: #f1f5f9;
+      border: 1px solid transparent;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      color: #475569;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .tag-btn.active, .tag-btn:hover {
+      background: var(--primary-light);
+      color: #065f46;
+      border-color: #a7f3d0;
+    }
+
+    .search-input {
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 13px;
+      outline: none;
+      width: 240px;
+    }
+
+    .search-input:focus {
+      border-color: var(--primary);
+    }
+
+    /* Main Table */
+    .table-container {
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      overflow-x: auto;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    th {
+      background: #f8fafc;
+      padding: 14px 18px;
+      color: #475569;
+      font-weight: 600;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover {
+      background-color: #fbfcfe;
+    }
+
+    /* Badges & Tags */
+    .badge-org {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      background: #f1f5f9;
+      color: #334155;
+    }
+
+    .badge-category {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-left: 6px;
+    }
+
+    .cat-rd { background: #e0e7ff; color: #4338ca; }
+    .cat-bid { background: #fef3c7; color: #b45309; }
+    .cat-cons { background: #dcfce7; color: #15803d; }
+
+    .title-cell {
+      max-width: 450px;
+    }
+
+    .title-link {
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    .title-link:hover {
+      color: #0f766e;
+      text-decoration: underline;
+    }
+
+    .tags-list {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .dday-tag {
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .dday-urgent { background: #fee2e2; color: #b91c1c; }
+    .dday-normal { background: #fef3c7; color: #92400e; }
+    .dday-safe { background: #ecfdf5; color: #065f46; }
+
+    .btn-action {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      color: #0f766e;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.15s;
+    }
+
+    .btn-action:hover {
+      background: #10b981;
+      color: #fff;
+      border-color: #10b981;
+    }
+
+    footer {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Brand Top Bar -->
+  <div class="brand-bar">
+    <div class="brand-logo">
+      <img src="data:image/png;base64,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" alt="ENGICORIX 로고">
+    </div>
+    <div class="author-badge">
+      <span class="dot"></span>
+      <span>작성자: <strong>엔지코릭스 선행개발Lab 김민중 책임 연구원</strong></span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="header-title">
+      <h1>
+        🚀 주간 국책과제 & 입찰 공고 브리핑
+        <span class="badge-live">LIVE UPDATED</span>
+      </h1>
+      <p>주요 연구기관(IITP, KEIT, TIPA, 나라장터) 신규 입찰 및 R&D 과제 실시간 트래커</p>
+    </div>
+    <div class="header-meta">
+      <div><strong>기준 주차:</strong> 2026년 8월 3주차</div>
+      <div><strong>최근 동기화:</strong> 2026-08-19 09:00 (매주 자동 갱신)</div>
+    </div>
+  </header>
+
+  <!-- Key Metrics -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="label">신규 모니터링 공고</div>
+      <div class="value text-blue">24 <span style="font-size:14px; font-weight:normal; color:#64748b;">건</span></div>
+      <div class="sub text-blue">전주 대비 +5건 증가</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">마감 임박 (D-7 이내)</div>
+      <div class="value text-red">6 <span style="font-size:14px; font-weight:normal; color:#64748b;">건</span></div>
+      <div class="sub text-red">제안서 즉시 검토 필요</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">총 식별 사업비 규모</div>
+      <div class="value text-green">148.5 <span style="font-size:14px; font-weight:normal; color:#64748b;">억원</span></div>
+      <div class="sub">평균 과제당 약 6.1억원</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">엔지코릭스 매칭 우선도 (Top)</div>
+      <div class="value" style="color:var(--accent-purple);">4 <span style="font-size:14px; font-weight:normal; color:#64748b;">건</span></div>
+      <div class="sub" style="color:var(--accent-purple);">선행개발 핵심 영역 매칭</div>
+    </div>
+  </div>
+
+  <!-- Filter & Search Controls -->
+  <div class="controls-bar">
+    <div class="filter-tags">
+      <button class="tag-btn active" onclick="filterTable('all')">전체 보기 (24)</button>
+      <button class="tag-btn" onclick="filterTable('AI')"># 선행개발/AI</button>
+      <button class="tag-btn" onclick="filterTable('제조/소부장')"># 소부장/공정</button>
+      <button class="tag-btn" onclick="filterTable('바이오')"># 바이오/신소재</button>
+      <button class="tag-btn" onclick="filterTable('용역입찰')"># 용역입찰</button>
+    </div>
+    <input type="text" id="searchInput" class="search-input" placeholder="공고명, 기관명 검색..." onkeyup="searchTable()">
+  </div>
+
+  <!-- Announcement Table -->
+  <div class="table-container">
+    <table id="announcementTable">
+      <thead>
+        <tr>
+          <th>발주/관리기관</th>
+          <th>공고명 & 핵심 기술분야</th>
+          <th>총 지원/사업비</th>
+          <th>접수 마감일 (D-Day)</th>
+          <th>접수처 / 원문</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-category="AI">
+          <td>
+            <span class="badge-org">IITP</span>
+            <span class="badge-category cat-rd">국책 R&D</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://iris.go.kr" target="_blank" class="title-link">
+              2026년도 생성형 AI 기반 산업 특화 멀티모달 모델 고도화 기술개발 과제
+            </a>
+            <div class="tags-list">#인공지능 #LLM #산업자동화 #기술개발</div>
+          </td>
+          <td><strong>25.0 억원</strong><br><span style="font-size:12px; color:#64748b;">(연 8.3억 / 3년)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">D-4</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-08-23 18:00</div>
+          </td>
+          <td>
+            <a href="https://iris.go.kr" target="_blank" class="btn-action">IRIS 바로가기 ↗</a>
+          </td>
+        </tr>
+
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">한국지능정보사회진흥원</span>
+            <span class="badge-category cat-bid">일반입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://www.g2b.go.kr" target="_blank" class="title-link">
+              공공 데이터 플랫폼 지능형 검색 체계 구축 및 정보화 전략계획(ISP) 수립
+            </a>
+            <div class="tags-list">#용역입찰 #데이터플랫폼 #ISP #나라장터</div>
+          </td>
+          <td><strong>4.2 억원</strong><br><span style="font-size:12px; color:#64748b;">(단년도 용역)</span></td>
+          <td>
+            <span class="dday-tag dday-normal">D-11</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-08-30 14:00</div>
+          </td>
+          <td>
+            <a href="https://www.g2b.go.kr" target="_blank" class="btn-action">나라장터 ↗</a>
+          </td>
+        </tr>
+
+        <tr data-category="제조/소부장">
+          <td>
+            <span class="badge-org">KEIT</span>
+            <span class="badge-category cat-rd">국책 R&D</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://iris.go.kr" target="_blank" class="title-link">
+              소재부품장비 혁신 생태계 조성을 위한 스마트 팩토리 예지보전 AI 솔루션 실증
+            </a>
+            <div class="tags-list">#제조/소부장 #예지보전 #스마트제조 #실증사업</div>
+          </td>
+          <td><strong>18.0 억원</strong><br><span style="font-size:12px; color:#64748b;">(총 2년 과제)</span></td>
+          <td>
+            <span class="dday-tag dday-safe">D-19</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-09-07 18:00</div>
+          </td>
+          <td>
+            <a href="https://iris.go.kr" target="_blank" class="btn-action">IRIS 바로가기 ↗</a>
+          </td>
+        </tr>
+
+        <tr data-category="AI">
+          <td>
+            <span class="badge-org">NIPA</span>
+            <span class="badge-category cat-cons">바우처/실증</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://nipa.kr" target="_blank" class="title-link">
+              2026년 AI 바우처 지원사업 추가 모집 (수요기업 매칭 및 솔루션 공급)
+            </a>
+            <div class="tags-list">#선행기술 #AI바우처 #수요공급매칭 #NIPA</div>
+          </td>
+          <td><strong>과제당 1.5 억원</strong><br><span style="font-size:12px; color:#64748b;">(정부지원 100%)</span></td>
+          <td>
+            <span class="dday-tag dday-normal">D-9</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-08-28 17:00</div>
+          </td>
+          <td>
+            <a href="https://nipa.kr" target="_blank" class="btn-action">NIPA 공고 ↗</a>
+          </td>
+        </tr>
+
+        <tr data-category="바이오">
+          <td>
+            <span class="badge-org">KHIDI</span>
+            <span class="badge-category cat-rd">국책 R&D</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://iris.go.kr" target="_blank" class="title-link">
+              디지털 헬스케어 기반 만성질환 모니터링 알고리즘 및 의료기기 SW 임상 검증
+            </a>
+            <div class="tags-list">#바이오 #디지털헬스케어 #의료기기 #임상</div>
+          </td>
+          <td><strong>12.0 억원</strong><br><span style="font-size:12px; color:#64748b;">(총 3년 과제)</span></td>
+          <td>
+            <span class="dday-tag dday-safe">D-25</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-09-13 18:00</div>
+          </td>
+          <td>
+            <a href="https://iris.go.kr" target="_blank" class="btn-action">IRIS 바로가기 ↗</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer>
+    <p>본 대시보드는 나라장터 OpenAPI 및 IRIS 공고 수집 파이프라인에 의해 매주 자동 생성됩니다.</p>
+    <p><strong>ENGICORIX 선행개발Lab</strong> | 작성자: 김민중 책임 연구원 | © 2026 ENGICORIX All rights reserved.</p>
+  </footer>
+</div>
+
+<script>
+  function filterTable(category) {
+    const buttons = document.querySelectorAll('.tag-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+
+    const rows = document.querySelectorAll('#announcementTable tbody tr');
+    rows.forEach(row => {
+      if (category === 'all' || row.getAttribute('data-category') === category) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+
+  function searchTable() {
+    const input = document.getElementById('searchInput').value.toLowerCase();
+    const rows = document.querySelectorAll('#announcementTable tbody tr');
+
+    rows.forEach(row => {
+      const text = row.innerText.toLowerCase();
+      row.style.display = text.includes(input) ? '' : 'none';
+    });
+  }
+</script>
+
+</body>
+</html>
