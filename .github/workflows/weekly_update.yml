@@ -1,0 +1,35 @@
+name: Update Weekly Tender Dashboard
+
+on:
+  schedule:
+    # 매주 월요일 한국시간 08:00 (UTC 일요일 23:00) 자동 실행
+    - cron: '0 23 * * 0'
+  workflow_dispatch: # 수동으로 즉시 갱신하고 싶을 때 누르는 버튼
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4 jinja2
+
+      - name: Run Crawler & Generator Script
+        env:
+          G2B_API_KEY: ${{ secrets.G2B_API_KEY }}
+        run: |
+          python update_tender.py
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
