@@ -367,7 +367,7 @@
     </div>
     <div class="header-meta">
       <div><strong>기준 주차:</strong> 2026년 8월 3주차</div>
-      <div><strong>최근 동기화:</strong> 2026-08-19 06:31 (매주 자동 갱신)</div>
+      <div><strong>최근 동기화:</strong> 2026-08-19 06:35 (매주 자동 갱신)</div>
     </div>
   </header>
 
@@ -375,12 +375,12 @@
   <div class="stats-grid">
     <div class="stat-card">
       <div class="label">신규 모니터링 공고</div>
-      <div class="value text-blue">0 <span style="font-size:14px; font-weight:normal; color:#64748b;">건</span></div>
+      <div class="value text-blue">79 <span style="font-size:14px; font-weight:normal; color:#64748b;">건</span></div>
       <div class="sub text-blue">전주 대비 +5건 증가</div>
     </div>
     <div class="stat-card">
       <div class="label">마감 임박 (D-7 이내)</div>
-      <div class="value text-red">0 <span style="font-size:14px; font-weight:normal; color:#64748b;">건</span></div>
+      <div class="value text-red">65 <span style="font-size:14px; font-weight:normal; color:#64748b;">건</span></div>
       <div class="sub text-red">제안서 즉시 검토 필요</div>
     </div>
     <div class="stat-card">
@@ -390,7 +390,7 @@
     </div>
     <div class="stat-card">
       <div class="label">엔지코릭스 매칭 우선도 (Top)</div>
-      <div class="value" style="color:var(--accent-purple);">0 <span style="font-size:14px; font-weight:normal; color:#64748b;">건</span></div>
+      <div class="value" style="color:var(--accent-purple);">10 <span style="font-size:14px; font-weight:normal; color:#64748b;">건</span></div>
       <div class="sub" style="color:var(--accent-purple);">선행개발 핵심 영역 매칭</div>
     </div>
   </div>
@@ -398,11 +398,11 @@
   <!-- Filter & Search Controls -->
   <div class="controls-bar">
     <div class="filter-tags">
-      <button class="tag-btn active" onclick="filterTable('all', this)">전체 보기 (24)</button>
-      <button class="tag-btn" onclick="filterTable('선행개발/AI', this)"># 선행개발/AI</button>
-      <button class="tag-btn" onclick="filterTable('소부장/공정', this)"># 소부장/공정</button>
-      <button class="tag-btn" onclick="filterTable('바이오/신소재', this)"># 바이오/신소재</button>
-      <button class="tag-btn" onclick="filterTable('용역입찰', this)"># 용역입찰</button>
+      <button class="tag-btn active" onclick="filterTable('all')">전체 보기 (24)</button>
+      <button class="tag-btn" onclick="filterTable('AI')"># 선행개발/AI</button>
+      <button class="tag-btn" onclick="filterTable('제조/소부장')"># 소부장/공정</button>
+      <button class="tag-btn" onclick="filterTable('바이오')"># 바이오/신소재</button>
+      <button class="tag-btn" onclick="filterTable('용역입찰')"># 용역입찰</button>
     </div>
     <input type="text" id="searchInput" class="search-input" placeholder="공고명, 기관명 검색..." onkeyup="searchTable()">
   </div>
@@ -420,9 +420,1900 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td colspan="5" style="text-align:center; padding:40px; color:#64748b;">
-            현재 수집된 신규 관심 공고가 없거나 API 동기화 중입니다.
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">보령시시설관리공단</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638520%20%EB%B3%B4%EB%A0%B9%EC%8B%9C%EC%8B%9C%EC%84%A4%EA%B4%80%EB%A6%AC%EA%B3%B5%EB%8B%A8%202026%EB%85%84%20%ED%99%98%EA%B2%BD%EA%B8%B0%EC%B4%88%EC%8B%9C%EC%84%A4%20%EC%9C%A0%EB%9F%89%EA%B3%84%20%EA%B2%80%C2%B7%EA%B5%90%EC%A0%95%20%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              보령시시설관리공단 2026년 환경기초시설 유량계 검·교정 용역
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638520</strong> 
+              <button onclick="copyBidNo('R26BK01638520')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>4,862 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-24 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638520%20%EB%B3%B4%EB%A0%B9%EC%8B%9C%EC%8B%9C%EC%84%A4%EA%B4%80%EB%A6%AC%EA%B3%B5%EB%8B%A8%202026%EB%85%84%20%ED%99%98%EA%B2%BD%EA%B8%B0%EC%B4%88%EC%8B%9C%EC%84%A4%20%EC%9C%A0%EB%9F%89%EA%B3%84%20%EA%B2%80%C2%B7%EA%B5%90%EC%A0%95%20%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">대법원</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01633312%20%EB%B3%80%ED%98%B8%EC%82%AC%EB%B3%B4%EC%88%98%20%EC%86%8C%EC%86%A1%EB%B9%84%EC%9A%A9%20%EC%82%B0%EC%9E%85%20%EA%B8%B0%EC%A4%80%EC%97%90%20%EA%B4%80%ED%95%9C%20%EC%97%B0%EA%B5%AC" target="_blank" class="title-link">
+              변호사보수 소송비용 산입 기준에 관한 연구
+            </a>
+            <div class="tags-list">#연구</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01633312</strong> 
+              <button onclick="copyBidNo('R26BK01633312')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>4,545 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-31 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01633312%20%EB%B3%80%ED%98%B8%EC%82%AC%EB%B3%B4%EC%88%98%20%EC%86%8C%EC%86%A1%EB%B9%84%EC%9A%A9%20%EC%82%B0%EC%9E%85%20%EA%B8%B0%EC%A4%80%EC%97%90%20%EA%B4%80%ED%95%9C%20%EC%97%B0%EA%B5%AC" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">한국전기연구원</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01631751%20%ED%95%9C%EA%B5%AD%EC%A0%84%EA%B8%B0%EC%97%B0%EA%B5%AC%EC%9B%90-%EA%B5%AD%EB%A6%BD%EC%B0%BD%EC%9B%90%EB%8C%80%ED%95%99%EA%B5%90%20%ED%95%99%EC%97%B0%ED%98%91%EB%A0%A5%20%EC%9D%B8%EB%A0%A5%EC%96%91%EC%84%B1%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%20%EA%B3%A0%EB%8F%84%ED%99%94%20%EB%B0%8F%20%EC%9A%B4%EC%98%81" target="_blank" class="title-link">
+              한국전기연구원-국립창원대학교 학연협력 인력양성 프로그램 고도화 및 운영
+            </a>
+            <div class="tags-list">#연구</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01631751</strong> 
+              <button onclick="copyBidNo('R26BK01631751')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>7,727 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-28 11:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01631751%20%ED%95%9C%EA%B5%AD%EC%A0%84%EA%B8%B0%EC%97%B0%EA%B5%AC%EC%9B%90-%EA%B5%AD%EB%A6%BD%EC%B0%BD%EC%9B%90%EB%8C%80%ED%95%99%EA%B5%90%20%ED%95%99%EC%97%B0%ED%98%91%EB%A0%A5%20%EC%9D%B8%EB%A0%A5%EC%96%91%EC%84%B1%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%20%EA%B3%A0%EB%8F%84%ED%99%94%20%EB%B0%8F%20%EC%9A%B4%EC%98%81" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">육아정책개발센터</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01636639%20%EC%BD%94%EB%A1%9C%EB%82%98%20%EC%84%B8%EB%8C%80%28Covid-Generation%29%20%EC%95%84%EB%8F%99%EC%9D%98%20%20%EB%B0%9C%EB%8B%AC%20%EC%B6%94%EC%A0%81%20%EC%97%B0%EA%B5%AC%28%E2%85%A2%29" target="_blank" class="title-link">
+              코로나 세대(Covid-Generation) 아동의  발달 추적 연구(Ⅲ)
+            </a>
+            <div class="tags-list">#연구</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01636639</strong> 
+              <button onclick="copyBidNo('R26BK01636639')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>2.5 억원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-20 15:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01636639%20%EC%BD%94%EB%A1%9C%EB%82%98%20%EC%84%B8%EB%8C%80%28Covid-Generation%29%20%EC%95%84%EB%8F%99%EC%9D%98%20%20%EB%B0%9C%EB%8B%AC%20%EC%B6%94%EC%A0%81%20%EC%97%B0%EA%B5%AC%28%E2%85%A2%29" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">재단법인 한국국학진</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01635835%202026%20%EC%9C%A0%EA%B5%90%EB%AC%B8%ED%99%94%EB%B0%95%EB%AC%BC%EA%B4%80%20%EC%A0%95%EA%B8%B0%EA%B8%B0%ED%9A%8D%EC%A0%84%20%EC%A0%84%EC%8B%9C%EC%97%B0%EC%B6%9C%20%EB%B0%8F%20%EC%A0%9C%EC%9E%91%EC%84%A4%EC%B9%98%20%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              2026 유교문화박물관 정기기획전 전시연출 및 제작설치 용역
+            </a>
+            <div class="tags-list">#용역 #기획</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01635835</strong> 
+              <button onclick="copyBidNo('R26BK01635835')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>6,829 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-08-03 12:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01635835%202026%20%EC%9C%A0%EA%B5%90%EB%AC%B8%ED%99%94%EB%B0%95%EB%AC%BC%EA%B4%80%20%EC%A0%95%EA%B8%B0%EA%B8%B0%ED%9A%8D%EC%A0%84%20%EC%A0%84%EC%8B%9C%EC%97%B0%EC%B6%9C%20%EB%B0%8F%20%EC%A0%9C%EC%9E%91%EC%84%A4%EC%B9%98%20%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">한국언론진흥재단</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01628578%20%EC%A4%91%EC%9E%A5%EA%B8%B0%20%EA%B2%BD%EC%98%81%EC%A0%84%EB%9E%B5%20%EC%88%98%EB%A6%BD%20%EC%97%B0%EA%B5%AC%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              중장기 경영전략 수립 연구용역
+            </a>
+            <div class="tags-list">#용역 #연구</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01628578</strong> 
+              <button onclick="copyBidNo('R26BK01628578')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>2,727 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-31 11:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01628578%20%EC%A4%91%EC%9E%A5%EA%B8%B0%20%EA%B2%BD%EC%98%81%EC%A0%84%EB%9E%B5%20%EC%88%98%EB%A6%BD%20%EC%97%B0%EA%B5%AC%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">한국인터넷진흥원</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638547%20%EC%96%91%EC%9E%90%EB%82%B4%EC%84%B1%EC%95%94%ED%98%B8%20%EC%A0%84%ED%99%98%20%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C%C2%B7%ED%95%B4%EC%BB%A4%ED%86%A4%20%EA%B8%B0%ED%9A%8D%20%EB%B0%8F%20%EC%9A%B4%EC%98%81" target="_blank" class="title-link">
+              양자내성암호 전환 경진대회·해커톤 기획 및 운영
+            </a>
+            <div class="tags-list">#기획</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638547</strong> 
+              <button onclick="copyBidNo('R26BK01638547')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>1.0 억원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-safe">진행중</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;"></div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638547%20%EC%96%91%EC%9E%90%EB%82%B4%EC%84%B1%EC%95%94%ED%98%B8%20%EC%A0%84%ED%99%98%20%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C%C2%B7%ED%95%B4%EC%BB%A4%ED%86%A4%20%EA%B8%B0%ED%9A%8D%20%EB%B0%8F%20%EC%9A%B4%EC%98%81" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">(사）한국대학스포츠</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638544%20KUSF%20%EC%B2%B4%EC%9C%A1%ED%8A%B9%EA%B8%B0%EC%9E%90%20%EA%B2%BD%EA%B8%B0%EB%A0%A5%20%ED%8F%89%EA%B0%80%EC%A7%80%ED%91%9C%20%EC%82%B0%EC%B6%9C%20%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              KUSF 체육특기자 경기력 평가지표 산출 용역
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638544</strong> 
+              <button onclick="copyBidNo('R26BK01638544')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>8,181 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-08-10 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638544%20KUSF%20%EC%B2%B4%EC%9C%A1%ED%8A%B9%EA%B8%B0%EC%9E%90%20%EA%B2%BD%EA%B8%B0%EB%A0%A5%20%ED%8F%89%EA%B0%80%EC%A7%80%ED%91%9C%20%EC%82%B0%EC%B6%9C%20%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">전북특별자치도 정읍</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638554%20%ED%95%9C%EA%B5%AD%EA%B0%80%EC%9A%94%EC%B4%8C%20%EB%8B%AC%ED%95%98%20%ED%86%B5%ED%95%A9%EB%B8%8C%EB%9E%9C%EB%93%9C%20%EA%B0%9C%EB%B0%9C%20%EC%9A%A9%EC%97%AD%20%EC%9E%85%EC%B0%B0%EA%B3%B5%EA%B3%A0%20%28%ED%98%91%EC%83%81%EC%97%90%EC%9D%98%ED%95%9C%EA%B3%84%EC%95%BD%29" target="_blank" class="title-link">
+              한국가요촌 달하 통합브랜드 개발 용역 입찰공고 (협상에의한계약)
+            </a>
+            <div class="tags-list">#용역 #개발</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638554</strong> 
+              <button onclick="copyBidNo('R26BK01638554')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>4,545 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-31 17:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638554%20%ED%95%9C%EA%B5%AD%EA%B0%80%EC%9A%94%EC%B4%8C%20%EB%8B%AC%ED%95%98%20%ED%86%B5%ED%95%A9%EB%B8%8C%EB%9E%9C%EB%93%9C%20%EA%B0%9C%EB%B0%9C%20%EC%9A%A9%EC%97%AD%20%EC%9E%85%EC%B0%B0%EA%B3%B5%EA%B3%A0%20%28%ED%98%91%EC%83%81%EC%97%90%EC%9D%98%ED%95%9C%EA%B3%84%EC%95%BD%29" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">한국사회보장정보원</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01631717%202026%EB%85%84%20e%EC%95%84%EB%8F%99%ED%96%89%EB%B3%B5%EC%A7%80%EC%9B%90%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EA%B8%B0%EB%8A%A5%EA%B0%9C%EC%84%A0" target="_blank" class="title-link">
+              2026년 e아동행복지원시스템 기능개선
+            </a>
+            <div class="tags-list">#시스템</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01631717</strong> 
+              <button onclick="copyBidNo('R26BK01631717')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>3.6 억원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-08-07 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01631717%202026%EB%85%84%20e%EC%95%84%EB%8F%99%ED%96%89%EB%B3%B5%EC%A7%80%EC%9B%90%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EA%B8%B0%EB%8A%A5%EA%B0%9C%EC%84%A0" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">한국해양과학기술원 </span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638564%20HNS%20%EC%82%AC%EA%B3%A0%20%EB%8C%80%EC%9D%91%20%EC%A7%80%EC%9B%90%EC%9D%84%20%EC%9C%84%ED%95%9C%20%EB%AC%BC%EC%A7%88%EC%A0%95%EB%B3%B4%20%EB%B0%8F%20%EC%82%AC%EA%B3%A0%EB%8C%80%EC%9D%91%EA%B8%B0%EC%88%A0%20%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84%20%EC%97%B0%EA%B5%AC%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              HNS 사고 대응 지원을 위한 물질정보 및 사고대응기술 관리체계 연구용역
+            </a>
+            <div class="tags-list">#용역 #연구</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638564</strong> 
+              <button onclick="copyBidNo('R26BK01638564')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>8,818 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-20 10:30:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638564%20HNS%20%EC%82%AC%EA%B3%A0%20%EB%8C%80%EC%9D%91%20%EC%A7%80%EC%9B%90%EC%9D%84%20%EC%9C%84%ED%95%9C%20%EB%AC%BC%EC%A7%88%EC%A0%95%EB%B3%B4%20%EB%B0%8F%20%EC%82%AC%EA%B3%A0%EB%8C%80%EC%9D%91%EA%B8%B0%EC%88%A0%20%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84%20%EC%97%B0%EA%B5%AC%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">재단법인 차세대융합</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638553%20%ED%8C%90%EA%B5%90%20%EC%88%98%EC%9A%94%EC%9D%91%EB%8B%B5%ED%98%95%20%EC%9E%90%EC%9C%A8%EC%A3%BC%ED%96%89%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EC%9A%B4%EC%98%81%20%EC%9A%A9%EC%97%AD%28%EC%9E%AC%EA%B3%B5%EA%B3%A0%29" target="_blank" class="title-link">
+              판교 수요응답형 자율주행 서비스 운영 용역(재공고)
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638553</strong> 
+              <button onclick="copyBidNo('R26BK01638553')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>1.3 억원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-safe">진행중</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;"></div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638553%20%ED%8C%90%EA%B5%90%20%EC%88%98%EC%9A%94%EC%9D%91%EB%8B%B5%ED%98%95%20%EC%9E%90%EC%9C%A8%EC%A3%BC%ED%96%89%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EC%9A%B4%EC%98%81%20%EC%9A%A9%EC%97%AD%28%EC%9E%AC%EA%B3%B5%EA%B3%A0%29" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">(사)대한하키협회</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01633657%202026%20%ED%95%98%ED%82%A4%20%EC%9C%A0%EC%86%8C%EB%85%84%20%EC%8A%A4%ED%8F%AC%EC%B8%A0%20%EA%B8%B0%EB%B0%98%20%EA%B5%AC%EC%B6%95%20%EC%82%AC%EC%97%85%20%EC%9A%B4%EC%98%81%20%EB%8C%80%ED%96%89%EC%82%AC%20%EC%84%A0%EC%A0%95" target="_blank" class="title-link">
+              2026 하키 유소년 스포츠 기반 구축 사업 운영 대행사 선정
+            </a>
+            <div class="tags-list">#구축</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01633657</strong> 
+              <button onclick="copyBidNo('R26BK01633657')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>3.9 억원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-08-03 14:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01633657%202026%20%ED%95%98%ED%82%A4%20%EC%9C%A0%EC%86%8C%EB%85%84%20%EC%8A%A4%ED%8F%AC%EC%B8%A0%20%EA%B8%B0%EB%B0%98%20%EA%B5%AC%EC%B6%95%20%EC%82%AC%EC%97%85%20%EC%9A%B4%EC%98%81%20%EB%8C%80%ED%96%89%EC%82%AC%20%EC%84%A0%EC%A0%95" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">충청남도교육청 충청</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01620396%20%ED%99%8D%EC%84%B1%EC%B4%88%EB%93%B1%ED%95%99%EA%B5%90%20%EC%9A%B4%EB%8F%99%EC%9E%A5%20%ED%99%98%EA%B2%BD%EA%B0%9C%EC%84%A0%EA%B3%B5%EC%82%AC%20%ED%8F%90%EA%B8%B0%EB%AC%BC%20%EC%B2%98%EB%A6%AC%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              홍성초등학교 운동장 환경개선공사 폐기물 처리용역
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01620396</strong> 
+              <button onclick="copyBidNo('R26BK01620396')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>3,410 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-23 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01620396%20%ED%99%8D%EC%84%B1%EC%B4%88%EB%93%B1%ED%95%99%EA%B5%90%20%EC%9A%B4%EB%8F%99%EC%9E%A5%20%ED%99%98%EA%B2%BD%EA%B0%9C%EC%84%A0%EA%B3%B5%EC%82%AC%20%ED%8F%90%EA%B8%B0%EB%AC%BC%20%EC%B2%98%EB%A6%AC%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="소부장/공정">
+          <td>
+            <span class="badge-org">경찰청</span>
+            <span class="badge-category cat-rd">소부장/공정</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01632205%202026%EB%85%84%20%EC%9D%8C%EC%A3%BC%EC%9A%B4%EC%A0%84%20%EB%8B%A8%EC%86%8D%EC%9E%A5%EB%B9%84%28%EC%9D%8C%EC%A3%BC%EC%B8%A1%EC%A0%95%EA%B8%B0%29%20%EA%B2%80%EC%82%AC%28%EA%B5%90%EC%A0%95%29%20%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              2026년 음주운전 단속장비(음주측정기) 검사(교정) 용역
+            </a>
+            <div class="tags-list">#장비 #용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01632205</strong> 
+              <button onclick="copyBidNo('R26BK01632205')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>9.4 억원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-23 12:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01632205%202026%EB%85%84%20%EC%9D%8C%EC%A3%BC%EC%9A%B4%EC%A0%84%20%EB%8B%A8%EC%86%8D%EC%9E%A5%EB%B9%84%28%EC%9D%8C%EC%A3%BC%EC%B8%A1%EC%A0%95%EA%B8%B0%29%20%EA%B2%80%EC%82%AC%28%EA%B5%90%EC%A0%95%29%20%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">국토교통부</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01637586%20%ED%95%AD%EA%B3%B5%EC%A2%85%EC%82%AC%EC%9E%90%20%ED%91%9C%EC%A4%80%EA%B5%90%EC%9E%AC%20%EA%B0%9C%EC%A0%95%20%EB%B0%8F%20%EC%A0%84%EC%9E%90%EA%B5%90%EC%9E%AC%20%EC%8B%9C%EB%B2%94%20%EA%B5%AC%EC%B6%95" target="_blank" class="title-link">
+              항공종사자 표준교재 개정 및 전자교재 시범 구축
+            </a>
+            <div class="tags-list">#구축</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01637586</strong> 
+              <button onclick="copyBidNo('R26BK01637586')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>1.1 억원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-31 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01637586%20%ED%95%AD%EA%B3%B5%EC%A2%85%EC%82%AC%EC%9E%90%20%ED%91%9C%EC%A4%80%EA%B5%90%EC%9E%AC%20%EA%B0%9C%EC%A0%95%20%EB%B0%8F%20%EC%A0%84%EC%9E%90%EA%B5%90%EC%9E%AC%20%EC%8B%9C%EB%B2%94%20%EA%B5%AC%EC%B6%95" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">국토교통부 국토지리</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638588%202026%EB%85%84%20%EA%B3%A0%EC%A0%95%EB%B0%80%20%EC%A0%84%EC%9E%90%EC%A7%80%EB%8F%84%20%EA%B5%AC%EC%B6%95%20%EC%82%AC%EC%97%85%28%EC%A0%9C%EC%A3%BC%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%29" target="_blank" class="title-link">
+              2026년 고정밀 전자지도 구축 사업(제주특별자치도)
+            </a>
+            <div class="tags-list">#구축</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638588</strong> 
+              <button onclick="copyBidNo('R26BK01638588')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>20.5 억원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-20 11:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638588%202026%EB%85%84%20%EA%B3%A0%EC%A0%95%EB%B0%80%20%EC%A0%84%EC%9E%90%EC%A7%80%EB%8F%84%20%EA%B5%AC%EC%B6%95%20%EC%82%AC%EC%97%85%28%EC%A0%9C%EC%A3%BC%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%29" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">한국철강협회</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638583%20%EC%98%81%EB%86%8D%ED%98%95%20%ED%83%9C%EC%96%91%EA%B4%91%20STS%20%EA%B8%B0%EC%B4%88%ED%8C%8C%EC%9D%BC%20%EA%B0%9C%EB%B0%9C%20%EC%97%B0%EA%B5%AC" target="_blank" class="title-link">
+              영농형 태양광 STS 기초파일 개발 연구
+            </a>
+            <div class="tags-list">#개발 #연구</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638583</strong> 
+              <button onclick="copyBidNo('R26BK01638583')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>3,636 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-safe">진행중</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;"></div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638583%20%EC%98%81%EB%86%8D%ED%98%95%20%ED%83%9C%EC%96%91%EA%B4%91%20STS%20%EA%B8%B0%EC%B4%88%ED%8C%8C%EC%9D%BC%20%EA%B0%9C%EB%B0%9C%20%EC%97%B0%EA%B5%AC" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">사단법인 대경로봇기</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01630110%20%EB%A1%9C%EB%B4%87%20%EA%B8%B0%EB%B0%98%20%EA%B3%B5%EA%B0%84%EC%BB%B4%ED%93%A8%ED%8C%85%20%EC%B0%BD%EC%97%85%EC%A7%80%EC%9B%90%EC%82%AC%EC%97%85%20%EA%B3%B5%EB%8F%99%EA%B4%80%20%EC%A1%B0%EC%84%B1%20%EB%B0%8F%20%EC%9A%B4%EC%98%81%20%EC%9A%A9%EC%97%AD%20" target="_blank" class="title-link">
+              로봇 기반 공간컴퓨팅 창업지원사업 공동관 조성 및 운영 용역 
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01630110</strong> 
+              <button onclick="copyBidNo('R26BK01630110')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>3,636 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-safe">진행중</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;"></div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01630110%20%EB%A1%9C%EB%B4%87%20%EA%B8%B0%EB%B0%98%20%EA%B3%B5%EA%B0%84%EC%BB%B4%ED%93%A8%ED%8C%85%20%EC%B0%BD%EC%97%85%EC%A7%80%EC%9B%90%EC%82%AC%EC%97%85%20%EA%B3%B5%EB%8F%99%EA%B4%80%20%EC%A1%B0%EC%84%B1%20%EB%B0%8F%20%EC%9A%B4%EC%98%81%20%EC%9A%A9%EC%97%AD%20" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">충청남도 공주시</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638595%20%5B%EA%B3%84%EC%95%BD%EB%8C%80%ED%96%89%5D%202026%EB%85%84%20%EC%9C%A0%EA%B5%AC%EC%B2%98%EB%A6%AC%EA%B5%AC%EC%97%AD%20%ED%95%98%EC%88%98%EA%B4%80%EB%A1%9C%20%EC%A4%80%EC%84%A4%EC%82%AC%EC%97%85%20%ED%8F%90%EA%B8%B0%EB%AC%BC%EC%B2%98%EB%A6%AC%EC%9A%A9%EC%97%AD%28%EC%A4%80%EC%84%A4%ED%86%A0%29" target="_blank" class="title-link">
+              [계약대행] 2026년 유구처리구역 하수관로 준설사업 폐기물처리용역(준설토)
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638595</strong> 
+              <button onclick="copyBidNo('R26BK01638595')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>4,123 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-21 12:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638595%20%5B%EA%B3%84%EC%95%BD%EB%8C%80%ED%96%89%5D%202026%EB%85%84%20%EC%9C%A0%EA%B5%AC%EC%B2%98%EB%A6%AC%EA%B5%AC%EC%97%AD%20%ED%95%98%EC%88%98%EA%B4%80%EB%A1%9C%20%EC%A4%80%EC%84%A4%EC%82%AC%EC%97%85%20%ED%8F%90%EA%B8%B0%EB%AC%BC%EC%B2%98%EB%A6%AC%EC%9A%A9%EC%97%AD%28%EC%A4%80%EC%84%A4%ED%86%A0%29" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">경북대학교 산학협력</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638591%20%5B3-2%20BIT%5D%20BIT%20%EC%9C%B5%ED%95%A9%20%EA%B5%90%EC%9C%A1%EA%B3%BC%EC%A0%95%20%EB%B0%8F%20%EA%B5%90%EC%9C%A1%EC%BD%98%ED%85%90%EC%B8%A0%20%EA%B0%9C%EB%B0%9C%20%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              [3-2 BIT] BIT 융합 교육과정 및 교육콘텐츠 개발 용역
+            </a>
+            <div class="tags-list">#용역 #개발</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638591</strong> 
+              <button onclick="copyBidNo('R26BK01638591')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>8,000 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-31 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638591%20%5B3-2%20BIT%5D%20BIT%20%EC%9C%B5%ED%95%A9%20%EA%B5%90%EC%9C%A1%EA%B3%BC%EC%A0%95%20%EB%B0%8F%20%EA%B5%90%EC%9C%A1%EC%BD%98%ED%85%90%EC%B8%A0%20%EA%B0%9C%EB%B0%9C%20%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">경기도남양주교육청 </span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01612579%202027%ED%95%99%EB%85%84%EB%8F%84%20%EB%8F%99%ED%99%94%EC%A4%91%ED%95%99%EA%B5%90%202%ED%95%99%EB%85%84%20%EC%A3%BC%EC%A0%9C%EB%B3%84%20%EC%B2%B4%ED%97%98%ED%95%99%EC%8A%B5%20%EC%9A%A9%EC%97%AD%20%EC%9E%85%EC%B0%B0%20%EA%B3%B5%EA%B3%A0" target="_blank" class="title-link">
+              2027학년도 동화중학교 2학년 주제별 체험학습 용역 입찰 공고
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01612579</strong> 
+              <button onclick="copyBidNo('R26BK01612579')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>1.1 억원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-08-10 16:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01612579%202027%ED%95%99%EB%85%84%EB%8F%84%20%EB%8F%99%ED%99%94%EC%A4%91%ED%95%99%EA%B5%90%202%ED%95%99%EB%85%84%20%EC%A3%BC%EC%A0%9C%EB%B3%84%20%EC%B2%B4%ED%97%98%ED%95%99%EC%8A%B5%20%EC%9A%A9%EC%97%AD%20%EC%9E%85%EC%B0%B0%20%EA%B3%B5%EA%B3%A0" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">충청남도 예산군</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638537%20%EC%84%9C%EB%B6%80%EB%82%B4%EB%A5%99%EA%B6%8C%20%EA%B4%80%EA%B4%91%EC%A7%84%ED%9D%A5%EC%82%AC%EC%97%85%28%EC%84%B1%EC%A7%80%ED%98%9C%EC%9C%B0%EA%B8%B8%2C%20%EC%8B%9C%EB%82%98%EB%B8%8C%EB%A1%9C%EC%B9%98%EC%9C%A0%EA%B8%B8%29%20%EC%9A%B4%EC%98%81%20%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              서부내륙권 관광진흥사업(성지혜윰길, 시나브로치유길) 운영 용역
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638537</strong> 
+              <button onclick="copyBidNo('R26BK01638537')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>1.2 억원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-08-10 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638537%20%EC%84%9C%EB%B6%80%EB%82%B4%EB%A5%99%EA%B6%8C%20%EA%B4%80%EA%B4%91%EC%A7%84%ED%9D%A5%EC%82%AC%EC%97%85%28%EC%84%B1%EC%A7%80%ED%98%9C%EC%9C%B0%EA%B8%B8%2C%20%EC%8B%9C%EB%82%98%EB%B8%8C%EB%A1%9C%EC%B9%98%EC%9C%A0%EA%B8%B8%29%20%EC%9A%B4%EC%98%81%20%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">재단법인 전북테크노</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638621%20%EC%A0%84%EB%B6%81%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%ED%8A%B9%EC%84%B1%ED%99%94%EC%A7%80%EB%B0%A9%EB%8C%80%ED%95%99%20%EC%82%AC%EC%97%85%EA%B4%80%EB%A6%AC%20%EC%A7%80%EC%9B%90%20%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              전북특별자치도 특성화지방대학 사업관리 지원 용역
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638621</strong> 
+              <button onclick="copyBidNo('R26BK01638621')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>9,800 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-31 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638621%20%EC%A0%84%EB%B6%81%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%ED%8A%B9%EC%84%B1%ED%99%94%EC%A7%80%EB%B0%A9%EB%8C%80%ED%95%99%20%EC%82%AC%EC%97%85%EA%B4%80%EB%A6%AC%20%EC%A7%80%EC%9B%90%20%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">전북특별자치도교육청</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01637611%202026%ED%95%99%EB%85%84%EB%8F%84%20%ED%98%B8%EB%82%A8%EC%A4%91%ED%95%99%EA%B5%90%202%ED%95%99%EB%85%84%20%ED%85%8C%EB%A7%88%EC%8B%9D%20%ED%98%84%EC%9E%A5%EC%B2%B4%ED%97%98%ED%95%99%EC%8A%B5%28%EC%88%98%ED%95%99%EC%97%AC%ED%96%89%29%20%EC%9C%84%ED%83%81%EC%9A%A9%EC%97%AD%20%EC%9E%85%EC%B0%B0%20%EC%B7%A8%EC%86%8C%20%EA%B3%B5%EA%B3%A0%28%EC%9E%AC%EA%B3%B5%EA%B3%A0%29" target="_blank" class="title-link">
+              2026학년도 호남중학교 2학년 테마식 현장체험학습(수학여행) 위탁용역 입찰 취소 공고(재공고)
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01637611</strong> 
+              <button onclick="copyBidNo('R26BK01637611')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>4,684 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-27 15:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01637611%202026%ED%95%99%EB%85%84%EB%8F%84%20%ED%98%B8%EB%82%A8%EC%A4%91%ED%95%99%EA%B5%90%202%ED%95%99%EB%85%84%20%ED%85%8C%EB%A7%88%EC%8B%9D%20%ED%98%84%EC%9E%A5%EC%B2%B4%ED%97%98%ED%95%99%EC%8A%B5%28%EC%88%98%ED%95%99%EC%97%AC%ED%96%89%29%20%EC%9C%84%ED%83%81%EC%9A%A9%EC%97%AD%20%EC%9E%85%EC%B0%B0%20%EC%B7%A8%EC%86%8C%20%EA%B3%B5%EA%B3%A0%28%EC%9E%AC%EA%B3%B5%EA%B3%A0%29" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">한국벤처캐피탈협회</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638565%202026%EB%85%84%20%EA%B8%80%EB%A1%9C%EB%B2%8C%20%EA%B8%B0%EC%97%85%20%ED%98%91%EC%97%85%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%28%EC%B6%94%EA%B2%BD%29%20%E3%80%8C%EA%B8%80%EB%A1%9C%EB%B2%8C%20%EB%B2%A4%EC%B2%98%EC%BD%94%EB%B9%84%EC%A6%88%20%EC%BB%A8%EC%84%A4%ED%8C%85%E3%80%8D%20%EC%9A%B4%EC%98%81%20%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              2026년 글로벌 기업 협업 프로그램(추경) 「글로벌 벤처코비즈 컨설팅」 운영 용역
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638565</strong> 
+              <button onclick="copyBidNo('R26BK01638565')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>4,545 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-31 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638565%202026%EB%85%84%20%EA%B8%80%EB%A1%9C%EB%B2%8C%20%EA%B8%B0%EC%97%85%20%ED%98%91%EC%97%85%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%28%EC%B6%94%EA%B2%BD%29%20%E3%80%8C%EA%B8%80%EB%A1%9C%EB%B2%8C%20%EB%B2%A4%EC%B2%98%EC%BD%94%EB%B9%84%EC%A6%88%20%EC%BB%A8%EC%84%A4%ED%8C%85%E3%80%8D%20%EC%9A%B4%EC%98%81%20%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">국토교통부 국토지리</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638605%202026%EB%85%84%20%EA%B3%A0%EC%A0%95%EB%B0%80%20%EC%A0%84%EC%9E%90%EC%A7%80%EB%8F%84%20%EA%B5%AC%EC%B6%95%20%EC%82%AC%EC%97%85%28%EA%B2%BD%EA%B8%B0%20%EA%B4%91%EB%AA%85%EC%8B%9C%29" target="_blank" class="title-link">
+              2026년 고정밀 전자지도 구축 사업(경기 광명시)
+            </a>
+            <div class="tags-list">#구축</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638605</strong> 
+              <button onclick="copyBidNo('R26BK01638605')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>10.5 억원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-20 12:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638605%202026%EB%85%84%20%EA%B3%A0%EC%A0%95%EB%B0%80%20%EC%A0%84%EC%9E%90%EC%A7%80%EB%8F%84%20%EA%B5%AC%EC%B6%95%20%EC%82%AC%EC%97%85%28%EA%B2%BD%EA%B8%B0%20%EA%B4%91%EB%AA%85%EC%8B%9C%29" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">전남광주통합특별시교</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01637843%20%EC%A0%84%EB%82%A8%EA%B4%91%EC%A3%BC%ED%86%B5%ED%95%A9%ED%8A%B9%EB%B3%84%EC%8B%9C%EA%B5%90%EC%9C%A1%EC%B2%AD%EA%B4%91%EC%A3%BC%EC%9C%A0%EC%95%84%EA%B5%90%EC%9C%A1%EC%A7%84%ED%9D%A5%EC%9B%90%E3%80%8C2026%EB%85%84%20%EC%9C%A0%EC%95%84%20%EB%8F%85%EC%84%9C%EA%B5%90%EC%9C%A1%20%EC%95%B1%EA%B3%BC%20%EC%BD%98%ED%85%90%EC%B8%A0%20%EA%B0%9C%EB%B0%9C%20%C2%B7%20%EC%A0%9C%EC%9E%91%E3%80%8D%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              전남광주통합특별시교육청광주유아교육진흥원「2026년 유아 독서교육 앱과 콘텐츠 개발 · 제작」용역
+            </a>
+            <div class="tags-list">#용역 #개발</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01637843</strong> 
+              <button onclick="copyBidNo('R26BK01637843')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>5,000 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-31 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01637843%20%EC%A0%84%EB%82%A8%EA%B4%91%EC%A3%BC%ED%86%B5%ED%95%A9%ED%8A%B9%EB%B3%84%EC%8B%9C%EA%B5%90%EC%9C%A1%EC%B2%AD%EA%B4%91%EC%A3%BC%EC%9C%A0%EC%95%84%EA%B5%90%EC%9C%A1%EC%A7%84%ED%9D%A5%EC%9B%90%E3%80%8C2026%EB%85%84%20%EC%9C%A0%EC%95%84%20%EB%8F%85%EC%84%9C%EA%B5%90%EC%9C%A1%20%EC%95%B1%EA%B3%BC%20%EC%BD%98%ED%85%90%EC%B8%A0%20%EA%B0%9C%EB%B0%9C%20%C2%B7%20%EC%A0%9C%EC%9E%91%E3%80%8D%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">(주)한국거래소</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638584%20%EC%A7%80%ED%91%9C%EA%B8%88%EB%A6%AC%20%EC%A0%84%ED%99%98%EC%97%90%20%EB%8C%80%EB%B9%84%ED%95%9C%20%EC%9E%A5%EC%99%B8CCP%20%EC%B6%94%EC%A7%84%EA%B3%BC%EC%A0%9C%20%EA%B2%80%ED%86%A0%20%EC%97%B0%EA%B5%AC%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              지표금리 전환에 대비한 장외CCP 추진과제 검토 연구용역
+            </a>
+            <div class="tags-list">#용역 #연구</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638584</strong> 
+              <button onclick="copyBidNo('R26BK01638584')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>8,181 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-31 14:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638584%20%EC%A7%80%ED%91%9C%EA%B8%88%EB%A6%AC%20%EC%A0%84%ED%99%98%EC%97%90%20%EB%8C%80%EB%B9%84%ED%95%9C%20%EC%9E%A5%EC%99%B8CCP%20%EC%B6%94%EC%A7%84%EA%B3%BC%EC%A0%9C%20%EA%B2%80%ED%86%A0%20%EC%97%B0%EA%B5%AC%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">대전광역시교육청 대</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638422%20%EB%8C%80%EC%A0%84%EC%82%B0%EC%84%B1%EC%B4%88%20%EC%99%B8%EB%B6%80%ED%99%98%EA%B2%BD%EA%B0%9C%EC%84%A0%EA%B3%B5%EC%82%AC%20%EA%B1%B4%EC%84%A4%ED%8F%90%EA%B8%B0%EB%AC%BC%20%EC%B2%98%EB%A6%AC%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              대전산성초 외부환경개선공사 건설폐기물 처리용역
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638422</strong> 
+              <button onclick="copyBidNo('R26BK01638422')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>1,736 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-28 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638422%20%EB%8C%80%EC%A0%84%EC%82%B0%EC%84%B1%EC%B4%88%20%EC%99%B8%EB%B6%80%ED%99%98%EA%B2%BD%EA%B0%9C%EC%84%A0%EA%B3%B5%EC%82%AC%20%EA%B1%B4%EC%84%A4%ED%8F%90%EA%B8%B0%EB%AC%BC%20%EC%B2%98%EB%A6%AC%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">대전광역시교육청 대</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638417%20%EC%A4%91%EC%95%99%EC%9C%A0%20%EC%99%B8%EB%B6%80%ED%99%98%EA%B2%BD%EA%B0%9C%EC%84%A0%EA%B3%B5%EC%82%AC%20%EA%B1%B4%EC%84%A4%ED%8F%90%EA%B8%B0%EB%AC%BC%20%EC%B2%98%EB%A6%AC%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              중앙유 외부환경개선공사 건설폐기물 처리용역
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638417</strong> 
+              <button onclick="copyBidNo('R26BK01638417')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>1,200 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-28 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638417%20%EC%A4%91%EC%95%99%EC%9C%A0%20%EC%99%B8%EB%B6%80%ED%99%98%EA%B2%BD%EA%B0%9C%EC%84%A0%EA%B3%B5%EC%82%AC%20%EA%B1%B4%EC%84%A4%ED%8F%90%EA%B8%B0%EB%AC%BC%20%EC%B2%98%EB%A6%AC%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">삼성면 원도심 자율</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01597829%20%EC%82%BC%EC%84%B1%EB%A9%B4%EC%9B%90%EB%8F%84%EC%8B%AC%EC%9E%90%EC%9C%A8%EC%83%81%EA%B6%8C%EC%A1%B0%ED%95%A9_%EC%8A%A4%ED%83%80%EC%A0%90%ED%8F%AC%EC%9C%A1%EC%84%B1%EC%A7%80%EC%9B%90%20%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              삼성면원도심자율상권조합_스타점포육성지원 용역
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01597829</strong> 
+              <button onclick="copyBidNo('R26BK01597829')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>7,545 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-safe">진행중</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;"></div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01597829%20%EC%82%BC%EC%84%B1%EB%A9%B4%EC%9B%90%EB%8F%84%EC%8B%AC%EC%9E%90%EC%9C%A8%EC%83%81%EA%B6%8C%EC%A1%B0%ED%95%A9_%EC%8A%A4%ED%83%80%EC%A0%90%ED%8F%AC%EC%9C%A1%EC%84%B1%EC%A7%80%EC%9B%90%20%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="선행개발/AI">
+          <td>
+            <span class="badge-org">서일대학교 산학협력</span>
+            <span class="badge-category cat-rd">선행개발/AI</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638590%20%5B%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84%EC%82%AC%EC%97%85%5D%E3%80%8C%EC%B2%AD%EB%85%84%EB%8F%84%EC%95%BD%20%EC%9D%B8%EC%9E%AC%EC%96%91%EC%84%B1%20%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84%E3%80%8DAI%2BX%20%ED%86%B5%ED%95%A9%EA%B4%80%EB%A6%AC%20%ED%94%8C%EB%9E%AB%ED%8F%BC%20%EA%B5%AC%EC%B6%95" target="_blank" class="title-link">
+              [부트캠프사업]「청년도약 인재양성 부트캠프」AI+X 통합관리 플랫폼 구축
+            </a>
+            <div class="tags-list">#AI #플랫폼 #구축</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638590</strong> 
+              <button onclick="copyBidNo('R26BK01638590')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>9,090 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-31 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638590%20%5B%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84%EC%82%AC%EC%97%85%5D%E3%80%8C%EC%B2%AD%EB%85%84%EB%8F%84%EC%95%BD%20%EC%9D%B8%EC%9E%AC%EC%96%91%EC%84%B1%20%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84%E3%80%8DAI%2BX%20%ED%86%B5%ED%95%A9%EA%B4%80%EB%A6%AC%20%ED%94%8C%EB%9E%AB%ED%8F%BC%20%EA%B5%AC%EC%B6%95" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">경상북도 김천시</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638668%202026%EB%85%84%20%EA%B2%BD%EC%83%81%EB%B6%81%EB%8F%84%20%ED%86%A0%EB%AA%A9%EC%9D%B8%20%ED%95%9C%EB%A7%88%EC%9D%8C%EC%B2%B4%EC%9C%A1%EB%8C%80%ED%9A%8C%20%ED%96%89%EC%82%AC%EC%9C%84%ED%83%81%20%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              2026년 경상북도 토목인 한마음체육대회 행사위탁 용역
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638668</strong> 
+              <button onclick="copyBidNo('R26BK01638668')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>4,536 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-24 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638668%202026%EB%85%84%20%EA%B2%BD%EC%83%81%EB%B6%81%EB%8F%84%20%ED%86%A0%EB%AA%A9%EC%9D%B8%20%ED%95%9C%EB%A7%88%EC%9D%8C%EC%B2%B4%EC%9C%A1%EB%8C%80%ED%9A%8C%20%ED%96%89%EC%82%AC%EC%9C%84%ED%83%81%20%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">지식재산처</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638682%20%28%EC%A0%95%EC%B1%85%EC%97%B0%EA%B5%AC%29%20%EC%82%B0%EC%97%85%EC%9E%AC%EC%82%B0%20%EC%A0%95%EB%B3%B4%20%EC%A0%9C%EA%B3%B5%20%EC%88%98%EC%88%98%EB%A3%8C%20%EC%A0%81%EC%A0%95%EC%84%B1%20%EC%97%B0%EA%B5%AC" target="_blank" class="title-link">
+              (정책연구) 산업재산 정보 제공 수수료 적정성 연구
+            </a>
+            <div class="tags-list">#연구</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638682</strong> 
+              <button onclick="copyBidNo('R26BK01638682')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>2,727 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-31 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638682%20%28%EC%A0%95%EC%B1%85%EC%97%B0%EA%B5%AC%29%20%EC%82%B0%EC%97%85%EC%9E%AC%EC%82%B0%20%EC%A0%95%EB%B3%B4%20%EC%A0%9C%EA%B3%B5%20%EC%88%98%EC%88%98%EB%A3%8C%20%EC%A0%81%EC%A0%95%EC%84%B1%20%EC%97%B0%EA%B5%AC" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">중소기업은행</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638685%20%E3%80%8C%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%ED%95%9C%EA%B0%95%E3%80%8D2%EB%8B%A8%EA%B3%84%20%EC%B0%B8%EC%97%AC%EB%A5%BC%20%EC%9C%84%ED%95%9C%20%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%20%EC%9D%B8%ED%94%84%EB%9D%BC%20%EA%B5%AC%EC%B6%95%20%EC%82%AC%EC%97%85%20%EC%99%B8%EC%A3%BC%20%EA%B0%90%EB%A6%AC" target="_blank" class="title-link">
+              「프로젝트 한강」2단계 참여를 위한 클라우드 인프라 구축 사업 외주 감리
+            </a>
+            <div class="tags-list">#구축</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638685</strong> 
+              <button onclick="copyBidNo('R26BK01638685')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>1.2 억원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-safe">진행중</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;"></div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638685%20%E3%80%8C%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%ED%95%9C%EA%B0%95%E3%80%8D2%EB%8B%A8%EA%B3%84%20%EC%B0%B8%EC%97%AC%EB%A5%BC%20%EC%9C%84%ED%95%9C%20%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%20%EC%9D%B8%ED%94%84%EB%9D%BC%20%EA%B5%AC%EC%B6%95%20%EC%82%AC%EC%97%85%20%EC%99%B8%EC%A3%BC%20%EA%B0%90%EB%A6%AC" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">주식회사 해광운수</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638572%20%5B%EA%B8%B4%EA%B8%89%5D%202026%EB%85%84%20%EA%B5%AD%EA%B0%80%EB%B3%B4%EC%A1%B0%ED%95%AD%EB%A1%9C%20%EC%84%AC%EC%82%AC%EB%9E%911%ED%98%B8%20%EA%B8%B0%EA%B4%80%20%EC%88%98%EB%A6%AC%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              [긴급] 2026년 국가보조항로 섬사랑1호 기관 수리용역
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638572</strong> 
+              <button onclick="copyBidNo('R26BK01638572')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>3,181 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-24 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638572%20%5B%EA%B8%B4%EA%B8%89%5D%202026%EB%85%84%20%EA%B5%AD%EA%B0%80%EB%B3%B4%EC%A1%B0%ED%95%AD%EB%A1%9C%20%EC%84%AC%EC%82%AC%EB%9E%911%ED%98%B8%20%EA%B8%B0%EA%B4%80%20%EC%88%98%EB%A6%AC%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">국토교통부 국토지리</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638698%202026%EB%85%84%20%EA%B3%A0%EC%A0%95%EB%B0%80%20%EC%A0%84%EC%9E%90%EC%A7%80%EB%8F%84%20%EA%B5%AC%EC%B6%95%20%EC%82%AC%EC%97%85%28%EC%9D%B8%EC%B2%9C%EA%B4%91%EC%97%AD%EC%8B%9C%29" target="_blank" class="title-link">
+              2026년 고정밀 전자지도 구축 사업(인천광역시)
+            </a>
+            <div class="tags-list">#구축</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638698</strong> 
+              <button onclick="copyBidNo('R26BK01638698')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>15.7 억원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-20 14:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638698%202026%EB%85%84%20%EA%B3%A0%EC%A0%95%EB%B0%80%20%EC%A0%84%EC%9E%90%EC%A7%80%EB%8F%84%20%EA%B5%AC%EC%B6%95%20%EC%82%AC%EC%97%85%28%EC%9D%B8%EC%B2%9C%EA%B4%91%EC%97%AD%EC%8B%9C%29" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">충청남도교육청 충청</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01635051%20%28%EA%B0%80%EC%B9%AD%29%EC%B2%9C%EC%95%88%EC%84%B1%EC%84%B13%EC%B4%88%EB%93%B1%ED%95%99%EA%B5%90%20%EA%B5%90%EC%82%AC%20%EC%8B%A0%EC%B6%95%EA%B3%B5%EC%82%AC%20%EA%B0%80%EC%97%B0%EC%84%B1%20%ED%8F%90%EA%B8%B0%EB%AC%BC%EC%B2%98%EB%A6%AC%EC%9A%A9%EC%97%AD%20%EA%B2%AC%EC%A0%81%EA%B3%B5%EA%B3%A0" target="_blank" class="title-link">
+              (가칭)천안성성3초등학교 교사 신축공사 가연성 폐기물처리용역 견적공고
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01635051</strong> 
+              <button onclick="copyBidNo('R26BK01635051')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>3,980 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-24 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01635051%20%28%EA%B0%80%EC%B9%AD%29%EC%B2%9C%EC%95%88%EC%84%B1%EC%84%B13%EC%B4%88%EB%93%B1%ED%95%99%EA%B5%90%20%EA%B5%90%EC%82%AC%20%EC%8B%A0%EC%B6%95%EA%B3%B5%EC%82%AC%20%EA%B0%80%EC%97%B0%EC%84%B1%20%ED%8F%90%EA%B8%B0%EB%AC%BC%EC%B2%98%EB%A6%AC%EC%9A%A9%EC%97%AD%20%EA%B2%AC%EC%A0%81%EA%B3%B5%EA%B3%A0" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">(재)한국조선해양기</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638604%20%EC%95%94%EB%AA%A8%EB%8B%88%EC%95%84%20%EB%B2%99%EC%BB%A4%EB%A7%81%20%EC%8B%A4%EC%A6%9D%20%EC%97%B0%EA%B3%84%20%ED%9B%88%EB%A0%A8%20%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%ED%84%B0" target="_blank" class="title-link">
+              암모니아 벙커링 실증 연계 훈련 시뮬레이터
+            </a>
+            <div class="tags-list">#실증</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638604</strong> 
+              <button onclick="copyBidNo('R26BK01638604')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>5.0 억원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-31 14:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638604%20%EC%95%94%EB%AA%A8%EB%8B%88%EC%95%84%20%EB%B2%99%EC%BB%A4%EB%A7%81%20%EC%8B%A4%EC%A6%9D%20%EC%97%B0%EA%B3%84%20%ED%9B%88%EB%A0%A8%20%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%ED%84%B0" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">경기도 화성시 공원</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638690%202026%EB%85%84%20%EB%8F%99%ED%83%84%ED%98%B8%EC%88%98%EA%B3%B5%EC%9B%90%20%EB%85%B8%ED%9B%84%EC%82%B0%EC%B1%85%EB%A1%9C%20%EC%A0%95%EB%B9%84%EA%B3%B5%EC%82%AC%20%ED%8F%90%EA%B8%B0%EB%AC%BC%EC%B2%98%EB%A6%AC%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              2026년 동탄호수공원 노후산책로 정비공사 폐기물처리용역
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638690</strong> 
+              <button onclick="copyBidNo('R26BK01638690')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>2,159 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-24 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638690%202026%EB%85%84%20%EB%8F%99%ED%83%84%ED%98%B8%EC%88%98%EA%B3%B5%EC%9B%90%20%EB%85%B8%ED%9B%84%EC%82%B0%EC%B1%85%EB%A1%9C%20%EC%A0%95%EB%B9%84%EA%B3%B5%EC%82%AC%20%ED%8F%90%EA%B8%B0%EB%AC%BC%EC%B2%98%EB%A6%AC%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">경기도교육청 안양여</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638599%202026%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%88%EC%96%91%EC%97%AC%EA%B3%A0%202%ED%95%99%EA%B8%B0%20%EC%9C%84%ED%83%81%EA%B8%89%EC%8B%9D%28%EC%84%9D%EC%8B%9D%29%20%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              2026학년도 안양여고 2학기 위탁급식(석식) 용역
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638599</strong> 
+              <button onclick="copyBidNo('R26BK01638599')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>0 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-31 12:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638599%202026%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%88%EC%96%91%EC%97%AC%EA%B3%A0%202%ED%95%99%EA%B8%B0%20%EC%9C%84%ED%83%81%EA%B8%89%EC%8B%9D%28%EC%84%9D%EC%8B%9D%29%20%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">유네스코국제무예센터</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638643%20%EC%9C%A0%EB%84%A4%EC%8A%A4%EC%BD%94%20%EA%B5%AD%EC%A0%9C%EB%AC%B4%EC%98%88%EC%84%BC%ED%84%B0%2010%EC%A3%BC%EB%85%84%20%EA%B8%B0%EB%85%90%20%E3%80%8C%EA%B5%AD%EC%A0%9C%20%EB%AC%B4%EC%98%88%20%EC%84%B8%EB%AF%B8%EB%82%98%20%E3%80%8D%EC%9A%B4%EC%98%81%20%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              유네스코 국제무예센터 10주년 기념 「국제 무예 세미나 」운영 용역
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638643</strong> 
+              <button onclick="copyBidNo('R26BK01638643')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>4,545 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-08-03 17:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638643%20%EC%9C%A0%EB%84%A4%EC%8A%A4%EC%BD%94%20%EA%B5%AD%EC%A0%9C%EB%AC%B4%EC%98%88%EC%84%BC%ED%84%B0%2010%EC%A3%BC%EB%85%84%20%EA%B8%B0%EB%85%90%20%E3%80%8C%EA%B5%AD%EC%A0%9C%20%EB%AC%B4%EC%98%88%20%EC%84%B8%EB%AF%B8%EB%82%98%20%E3%80%8D%EC%9A%B4%EC%98%81%20%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">법무부 대구지방교정</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01633851%20%EA%B9%80%EC%B2%9C%EC%86%8C%EB%85%84%EA%B5%90%EB%8F%84%EC%86%8C%20%EC%9D%8C%EC%8B%9D%EB%AC%BC%EB%A5%98%ED%8F%90%EA%B8%B0%EB%AC%BC%20%EC%9C%84%ED%83%81%EC%B2%98%EB%A6%AC%20%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              김천소년교도소 음식물류폐기물 위탁처리 용역
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01633851</strong> 
+              <button onclick="copyBidNo('R26BK01633851')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>4,636 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-28 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01633851%20%EA%B9%80%EC%B2%9C%EC%86%8C%EB%85%84%EA%B5%90%EB%8F%84%EC%86%8C%20%EC%9D%8C%EC%8B%9D%EB%AC%BC%EB%A5%98%ED%8F%90%EA%B8%B0%EB%AC%BC%20%EC%9C%84%ED%83%81%EC%B2%98%EB%A6%AC%20%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">기후에너지환경부</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638710%20%EA%B8%B0%ED%9B%84%EB%B3%80%ED%99%94%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80%20%EC%A0%9C%EB%8F%84%EA%B0%9C%EC%84%A0%20%EB%B0%8F%20%EC%9A%B4%EC%98%81%EC%B2%B4%EA%B3%84%20%EA%B3%A0%EB%8F%84%ED%99%94%20%EC%97%B0%EA%B5%AC%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              기후변화영향평가 제도개선 및 운영체계 고도화 연구용역
+            </a>
+            <div class="tags-list">#용역 #연구</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638710</strong> 
+              <button onclick="copyBidNo('R26BK01638710')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>4.0 억원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-08-05 12:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638710%20%EA%B8%B0%ED%9B%84%EB%B3%80%ED%99%94%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80%20%EC%A0%9C%EB%8F%84%EA%B0%9C%EC%84%A0%20%EB%B0%8F%20%EC%9A%B4%EC%98%81%EC%B2%B4%EA%B3%84%20%EA%B3%A0%EB%8F%84%ED%99%94%20%EC%97%B0%EA%B5%AC%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">국토교통부 국토지리</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638708%202026%EB%85%84%20%EA%B3%A0%EC%A0%95%EB%B0%80%20%EC%A0%84%EC%9E%90%EC%A7%80%EB%8F%84%20%EA%B5%AC%EC%B6%95%20%EC%82%AC%EC%97%85%28%EC%9A%B8%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%29" target="_blank" class="title-link">
+              2026년 고정밀 전자지도 구축 사업(울산광역시)
+            </a>
+            <div class="tags-list">#구축</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638708</strong> 
+              <button onclick="copyBidNo('R26BK01638708')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>52.1 억원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-20 15:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638708%202026%EB%85%84%20%EA%B3%A0%EC%A0%95%EB%B0%80%20%EC%A0%84%EC%9E%90%EC%A7%80%EB%8F%84%20%EA%B5%AC%EC%B6%95%20%EC%82%AC%EC%97%85%28%EC%9A%B8%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%29" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="선행개발/AI">
+          <td>
+            <span class="badge-org">국립금오공과대학교산</span>
+            <span class="badge-category cat-rd">선행개발/AI</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638102%20%EC%A0%84%EC%9E%90%EB%B6%80%ED%92%88%20%EC%A0%84%EB%8F%99%EA%B8%B0%20%EA%B3%B5%EA%B8%89%EB%A7%9D%20%EA%B4%80%EB%A6%AC%20%EB%B0%8F%20%ED%92%88%EC%A7%88%20%EA%B3%A0%EB%8F%84%ED%99%94%20%EC%A0%84%EC%82%AC%EC%A0%81%20%EC%9D%98%EC%82%AC%EA%B2%B0%EC%A0%95%20%EC%A7%80%EC%9B%90%20AI%20Agent%20%EA%B5%AC%EC%B6%95" target="_blank" class="title-link">
+              전자부품 전동기 공급망 관리 및 품질 고도화 전사적 의사결정 지원 AI Agent 구축
+            </a>
+            <div class="tags-list">#AI #부품 #구축</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638102</strong> 
+              <button onclick="copyBidNo('R26BK01638102')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>8,200 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-31 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638102%20%EC%A0%84%EC%9E%90%EB%B6%80%ED%92%88%20%EC%A0%84%EB%8F%99%EA%B8%B0%20%EA%B3%B5%EA%B8%89%EB%A7%9D%20%EA%B4%80%EB%A6%AC%20%EB%B0%8F%20%ED%92%88%EC%A7%88%20%EA%B3%A0%EB%8F%84%ED%99%94%20%EC%A0%84%EC%82%AC%EC%A0%81%20%EC%9D%98%EC%82%AC%EA%B2%B0%EC%A0%95%20%EC%A7%80%EC%9B%90%20AI%20Agent%20%EA%B5%AC%EC%B6%95" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">국가유산청 국립무형</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638688%202026%EB%85%84%20%ED%95%9C%EC%A7%80%20%ED%8A%B9%EB%B3%84%EC%A0%84%20%EC%98%81%EC%83%81%20%EC%BD%98%ED%85%90%EC%B8%A0%20%EC%A0%9C%EC%9E%91%20%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              2026년 한지 특별전 영상 콘텐츠 제작 용역
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638688</strong> 
+              <button onclick="copyBidNo('R26BK01638688')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>9,081 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-31 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638688%202026%EB%85%84%20%ED%95%9C%EC%A7%80%20%ED%8A%B9%EB%B3%84%EC%A0%84%20%EC%98%81%EC%83%81%20%EC%BD%98%ED%85%90%EC%B8%A0%20%EC%A0%9C%EC%9E%91%20%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="바이오/신소재">
+          <td>
+            <span class="badge-org">외교부</span>
+            <span class="badge-category cat-bid">바이오/신소재</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638534%202026-27%EB%85%84%20%EC%99%B8%EA%B5%90%EB%B6%80%20%ED%95%B4%EC%99%B8%20%EA%B8%B4%EA%B8%89%EC%9D%98%EB%A3%8C/%EB%B3%B4%EC%95%88%20%EC%9D%B4%C2%B7%ED%9B%84%EC%86%A1%20%EB%B0%8F%20%EB%B3%B4%ED%97%98%28%EC%8B%A4%EC%86%90%29%EC%A7%80%EC%9B%90%20%EC%84%9C%EB%B9%84%EC%8A%A4" target="_blank" class="title-link">
+              2026-27년 외교부 해외 긴급의료/보안 이·후송 및 보험(실손)지원 서비스
+            </a>
+            <div class="tags-list">#의료</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638534</strong> 
+              <button onclick="copyBidNo('R26BK01638534')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>31.9 억원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-normal">D-12</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-08-31 12:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638534%202026-27%EB%85%84%20%EC%99%B8%EA%B5%90%EB%B6%80%20%ED%95%B4%EC%99%B8%20%EA%B8%B4%EA%B8%89%EC%9D%98%EB%A3%8C/%EB%B3%B4%EC%95%88%20%EC%9D%B4%C2%B7%ED%9B%84%EC%86%A1%20%EB%B0%8F%20%EB%B3%B4%ED%97%98%28%EC%8B%A4%EC%86%90%29%EC%A7%80%EC%9B%90%20%EC%84%9C%EB%B9%84%EC%8A%A4" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="선행개발/AI">
+          <td>
+            <span class="badge-org">국립금오공과대학교산</span>
+            <span class="badge-category cat-rd">선행개발/AI</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638041%20%EC%A7%80%EB%8A%A5%ED%98%95%20%20%ED%92%88%EC%A7%88%EA%B4%80%EB%A6%AC%20%EA%B3%A0%EB%8F%84%ED%99%94%20DX%ED%98%81%EC%8B%A0%20%EB%A0%88%ED%8A%B8%EB%A1%9C%ED%95%8F%20%EC%A7%80%EC%9B%90" target="_blank" class="title-link">
+              지능형  품질관리 고도화 DX혁신 레트로핏 지원
+            </a>
+            <div class="tags-list">#지능형</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638041</strong> 
+              <button onclick="copyBidNo('R26BK01638041')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>8,700 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-31 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638041%20%EC%A7%80%EB%8A%A5%ED%98%95%20%20%ED%92%88%EC%A7%88%EA%B4%80%EB%A6%AC%20%EA%B3%A0%EB%8F%84%ED%99%94%20DX%ED%98%81%EC%8B%A0%20%EB%A0%88%ED%8A%B8%EB%A1%9C%ED%95%8F%20%EC%A7%80%EC%9B%90" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="선행개발/AI">
+          <td>
+            <span class="badge-org">국립금오공과대학교산</span>
+            <span class="badge-category cat-rd">선행개발/AI</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638067%20%EB%B0%98%EB%8F%84%EC%B2%B4%20%EB%B6%80%ED%94%94%20%EC%A0%95%EB%B0%80%EA%B0%80%EA%B3%B5%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EA%B4%80%EB%A6%AC%20%EA%B3%A0%EB%8F%84%ED%99%94%20%EC%A0%84%EC%82%AC%EC%A0%81%20%EC%9D%98%EC%82%AC%EA%B2%B0%EC%A0%95%20%EC%A7%80%EC%9B%90%20AI%20Agent%20%EA%B5%AC%EC%B6%95" target="_blank" class="title-link">
+              반도체 부픔 정밀가공 프로젝트 관리 고도화 전사적 의사결정 지원 AI Agent 구축
+            </a>
+            <div class="tags-list">#AI #반도체 #구축</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638067</strong> 
+              <button onclick="copyBidNo('R26BK01638067')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>7,890 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-31 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638067%20%EB%B0%98%EB%8F%84%EC%B2%B4%20%EB%B6%80%ED%94%94%20%EC%A0%95%EB%B0%80%EA%B0%80%EA%B3%B5%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EA%B4%80%EB%A6%AC%20%EA%B3%A0%EB%8F%84%ED%99%94%20%EC%A0%84%EC%82%AC%EC%A0%81%20%EC%9D%98%EC%82%AC%EA%B2%B0%EC%A0%95%20%EC%A7%80%EC%9B%90%20AI%20Agent%20%EA%B5%AC%EC%B6%95" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="선행개발/AI">
+          <td>
+            <span class="badge-org">재단법인 전북테크노</span>
+            <span class="badge-category cat-rd">선행개발/AI</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638713%202026%EB%85%84%20%EA%B3%B5%EA%B3%B5%EB%8D%B0%EC%9D%B4%ED%84%B0%20%ED%92%88%EC%A7%88%EA%B4%80%EB%A6%AC%20%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              2026년 공공데이터 품질관리 용역
+            </a>
+            <div class="tags-list">#데이터 #용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638713</strong> 
+              <button onclick="copyBidNo('R26BK01638713')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>5,454 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-31 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638713%202026%EB%85%84%20%EA%B3%B5%EA%B3%B5%EB%8D%B0%EC%9D%B4%ED%84%B0%20%ED%92%88%EC%A7%88%EA%B4%80%EB%A6%AC%20%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">호서대학교 산학협력</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638679%20%5B%EA%B8%B4%EA%B8%89%5D%20%EC%9D%BC%EB%B3%B8%20%EA%B5%AD%EC%A0%9C%20%EC%A0%84%EC%8B%9C%ED%9A%8C%20%EC%9A%B4%EC%98%81%20%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              [긴급] 일본 국제 전시회 운영 용역
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638679</strong> 
+              <button onclick="copyBidNo('R26BK01638679')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>4,849 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-28 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638679%20%5B%EA%B8%B4%EA%B8%89%5D%20%EC%9D%BC%EB%B3%B8%20%EA%B5%AD%EC%A0%9C%20%EC%A0%84%EC%8B%9C%ED%9A%8C%20%EC%9A%B4%EC%98%81%20%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">국립아시아문화전당재</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638663%202026%20ACC%20%EB%B9%85%EB%8F%84%EC%96%B4%20%EC%8B%9C%EB%84%A4%EB%A7%88%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%20%EA%B8%B0%ED%9A%8D%20%EB%B0%8F%20%ED%99%8D%EB%B3%B4%2C%20%ED%98%84%EC%9E%A5%20%EC%9A%B4%EC%98%81" target="_blank" class="title-link">
+              2026 ACC 빅도어 시네마 프로그램 기획 및 홍보, 현장 운영
+            </a>
+            <div class="tags-list">#기획</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638663</strong> 
+              <button onclick="copyBidNo('R26BK01638663')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>8,818 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-08-05 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638663%202026%20ACC%20%EB%B9%85%EB%8F%84%EC%96%B4%20%EC%8B%9C%EB%84%A4%EB%A7%88%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%20%EA%B8%B0%ED%9A%8D%20%EB%B0%8F%20%ED%99%8D%EB%B3%B4%2C%20%ED%98%84%EC%9E%A5%20%EC%9A%B4%EC%98%81" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="소부장/공정">
+          <td>
+            <span class="badge-org">국립금오공과대학교산</span>
+            <span class="badge-category cat-rd">소부장/공정</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638086%20%EB%B0%98%EB%8F%84%EC%B2%B4%20%EB%B6%80%ED%92%88%20%EC%A0%95%EB%B0%80%EA%B0%80%EA%B3%B5%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EA%B4%80%EB%A6%AC%20%EA%B3%A0%EB%8F%84%ED%99%94%20DX%ED%98%81%EC%8B%A0%20%EB%A0%88%ED%8A%B8%EB%A1%9C%ED%95%8F%20%EC%A7%80%EC%9B%90" target="_blank" class="title-link">
+              반도체 부품 정밀가공 프로젝트 관리 고도화 DX혁신 레트로핏 지원
+            </a>
+            <div class="tags-list">#부품 #반도체</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638086</strong> 
+              <button onclick="copyBidNo('R26BK01638086')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>5,745 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-31 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638086%20%EB%B0%98%EB%8F%84%EC%B2%B4%20%EB%B6%80%ED%92%88%20%EC%A0%95%EB%B0%80%EA%B0%80%EA%B3%B5%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EA%B4%80%EB%A6%AC%20%EA%B3%A0%EB%8F%84%ED%99%94%20DX%ED%98%81%EC%8B%A0%20%EB%A0%88%ED%8A%B8%EB%A1%9C%ED%95%8F%20%EC%A7%80%EC%9B%90" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">한국농어촌공사 농어</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01636478%20INWEPF%20%EC%9A%B4%EC%98%81%EC%9C%84%EC%9B%90%ED%9A%8C%20%EB%B0%8F%20%EC%8B%AC%ED%8F%AC%EC%A7%80%EC%97%84%20%ED%96%89%EC%82%AC%EB%8C%80%ED%96%89%20%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              INWEPF 운영위원회 및 심포지엄 행사대행 용역
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01636478</strong> 
+              <button onclick="copyBidNo('R26BK01636478')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>5,000 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-20 11:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01636478%20INWEPF%20%EC%9A%B4%EC%98%81%EC%9C%84%EC%9B%90%ED%9A%8C%20%EB%B0%8F%20%EC%8B%AC%ED%8F%AC%EC%A7%80%EC%97%84%20%ED%96%89%EC%82%AC%EB%8C%80%ED%96%89%20%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">제주특별자치도교육청</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01637798%20%ED%95%9C%EB%A6%BC%EC%A4%91%ED%95%99%EA%B5%90%202026%ED%95%99%EB%85%84%EB%8F%84%202%ED%95%99%EB%85%84%20%EC%88%98%ED%95%99%EC%97%AC%ED%96%89%20%EC%9C%84%ED%83%81%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              한림중학교 2026학년도 2학년 수학여행 위탁용역
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01637798</strong> 
+              <button onclick="copyBidNo('R26BK01637798')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>5,249 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-28 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01637798%20%ED%95%9C%EB%A6%BC%EC%A4%91%ED%95%99%EA%B5%90%202026%ED%95%99%EB%85%84%EB%8F%84%202%ED%95%99%EB%85%84%20%EC%88%98%ED%95%99%EC%97%AC%ED%96%89%20%EC%9C%84%ED%83%81%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">한국교육개발원</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638625%20%EA%B5%AD%EA%B0%80%20%EA%B5%90%EC%9B%90%EC%97%AD%EB%9F%89%EA%B0%9C%EB%B0%9C%EC%A7%80%EC%9B%90%20%ED%8F%AC%ED%84%B8%20%EA%B5%AC%EC%B6%95%20ISP%20%EC%82%AC%EC%97%85%20%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              국가 교원역량개발지원 포털 구축 ISP 사업 용역
+            </a>
+            <div class="tags-list">#용역 #ISP #구축 #개발</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638625</strong> 
+              <button onclick="copyBidNo('R26BK01638625')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>9,090 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-08-03 11:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638625%20%EA%B5%AD%EA%B0%80%20%EA%B5%90%EC%9B%90%EC%97%AD%EB%9F%89%EA%B0%9C%EB%B0%9C%EC%A7%80%EC%9B%90%20%ED%8F%AC%ED%84%B8%20%EA%B5%AC%EC%B6%95%20ISP%20%EC%82%AC%EC%97%85%20%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">(재)공간정보품질관</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01636239%20%EA%B3%B5%EA%B0%84%EC%A0%95%EB%B3%B4%20%ED%92%88%EC%A7%88%EA%B4%80%EB%A6%AC%20%EA%B5%90%EC%9C%A1%EC%82%AC%EC%97%85%20%ED%83%80%EB%8B%B9%EC%84%B1%20%EC%97%B0%EA%B5%AC" target="_blank" class="title-link">
+              공간정보 품질관리 교육사업 타당성 연구
+            </a>
+            <div class="tags-list">#연구</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01636239</strong> 
+              <button onclick="copyBidNo('R26BK01636239')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>5,000 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-08-03 14:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01636239%20%EA%B3%B5%EA%B0%84%EC%A0%95%EB%B3%B4%20%ED%92%88%EC%A7%88%EA%B4%80%EB%A6%AC%20%EA%B5%90%EC%9C%A1%EC%82%AC%EC%97%85%20%ED%83%80%EB%8B%B9%EC%84%B1%20%EC%97%B0%EA%B5%AC" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">한국어촌어항공단</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638720%202023%EB%85%84%20%EA%B1%B0%EC%A0%9C%EC%8B%9C%20%EC%9E%A5%EB%AA%A9%ED%95%AD%20%EC%96%B4%EC%B4%8C%EC%8B%A0%ED%99%9C%EB%A0%A5%EC%A6%9D%EC%A7%84%EC%82%AC%EC%97%85%28%EC%9C%A0%ED%98%951%29%EC%88%98%EC%82%B0%EA%B1%B0%EC%A0%90%EC%BB%B4%ED%94%8C%EB%A0%89%EC%8A%A4%EC%84%BC%ED%84%B0%2C%ED%95%B4%EC%96%91%EA%B2%BD%EC%A0%9C%EA%B5%90%EB%A5%98%EC%84%BC%ED%84%B0%20%EC%A7%80%EB%B0%98%EC%A1%B0%EC%82%AC%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              2023년 거제시 장목항 어촌신활력증진사업(유형1)수산거점컴플렉스센터,해양경제교류센터 지반조사용역
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638720</strong> 
+              <button onclick="copyBidNo('R26BK01638720')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>1,945 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-20 10:30:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638720%202023%EB%85%84%20%EA%B1%B0%EC%A0%9C%EC%8B%9C%20%EC%9E%A5%EB%AA%A9%ED%95%AD%20%EC%96%B4%EC%B4%8C%EC%8B%A0%ED%99%9C%EB%A0%A5%EC%A6%9D%EC%A7%84%EC%82%AC%EC%97%85%28%EC%9C%A0%ED%98%951%29%EC%88%98%EC%82%B0%EA%B1%B0%EC%A0%90%EC%BB%B4%ED%94%8C%EB%A0%89%EC%8A%A4%EC%84%BC%ED%84%B0%2C%ED%95%B4%EC%96%91%EA%B2%BD%EC%A0%9C%EA%B5%90%EB%A5%98%EC%84%BC%ED%84%B0%20%EC%A7%80%EB%B0%98%EC%A1%B0%EC%82%AC%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="바이오/신소재">
+          <td>
+            <span class="badge-org">근로복지공단 동해병</span>
+            <span class="badge-category cat-bid">바이오/신소재</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638615%20%EC%9D%98%EB%A3%8C%ED%8F%90%EA%B8%B0%EB%AC%BC%20%EC%9C%84%ED%83%81%EC%B2%98%EB%A6%AC%20%EC%9A%A9%EC%97%AD%20" target="_blank" class="title-link">
+              의료폐기물 위탁처리 용역 
+            </a>
+            <div class="tags-list">#의료 #용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638615</strong> 
+              <button onclick="copyBidNo('R26BK01638615')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>9,350 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-28 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638615%20%EC%9D%98%EB%A3%8C%ED%8F%90%EA%B8%B0%EB%AC%BC%20%EC%9C%84%ED%83%81%EC%B2%98%EB%A6%AC%20%EC%9A%A9%EC%97%AD%20" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">대구광역시 북구</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638798%20%EA%B4%80%EC%9D%8C%EB%8D%94%ED%95%98%EB%AA%A8%EB%8B%88%EC%84%BC%ED%84%B0%28%EA%B3%B5%EC%98%81%EC%A3%BC%EC%B0%A8%EC%9E%A5%29%20%26%ED%96%89%EC%A0%95%EB%B3%B5%EC%A7%80%EC%84%BC%ED%84%B0%20%EA%B1%B4%EB%A6%BD%EA%B3%B5%EC%82%AC%20%EA%B1%B4%EC%84%A4%ED%8F%90%EA%B8%B0%EB%AC%BC%20%EC%9A%B4%EB%B0%98%20%EB%B0%8F%20%EC%B2%98%EB%A6%AC%20%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              관음더하모니센터(공영주차장) &행정복지센터 건립공사 건설폐기물 운반 및 처리 용역
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638798</strong> 
+              <button onclick="copyBidNo('R26BK01638798')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>5,994 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-24 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638798%20%EA%B4%80%EC%9D%8C%EB%8D%94%ED%95%98%EB%AA%A8%EB%8B%88%EC%84%BC%ED%84%B0%28%EA%B3%B5%EC%98%81%EC%A3%BC%EC%B0%A8%EC%9E%A5%29%20%26%ED%96%89%EC%A0%95%EB%B3%B5%EC%A7%80%EC%84%BC%ED%84%B0%20%EA%B1%B4%EB%A6%BD%EA%B3%B5%EC%82%AC%20%EA%B1%B4%EC%84%A4%ED%8F%90%EA%B8%B0%EB%AC%BC%20%EC%9A%B4%EB%B0%98%20%EB%B0%8F%20%EC%B2%98%EB%A6%AC%20%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">전북특별자치도교육청</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638676%202026%ED%95%99%EB%85%84%EB%8F%84%20%ED%98%B8%EB%82%A8%EC%A4%91%ED%95%99%EA%B5%90%20%ED%85%8C%EB%A7%88%EC%8B%9D%ED%98%84%EC%9E%A5%EC%B2%B4%ED%97%98%ED%95%99%EC%8A%B5%28%EC%88%98%ED%95%99%EC%97%AC%ED%96%89%29%20%EC%9C%84%ED%83%81%EC%9A%A9%EC%97%AD%20%EC%9E%85%EC%B0%B0%20%EA%B3%B5%EA%B3%A0%28%EC%9E%AC%EA%B3%B5%EA%B3%A0%29" target="_blank" class="title-link">
+              2026학년도 호남중학교 테마식현장체험학습(수학여행) 위탁용역 입찰 공고(재공고)
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638676</strong> 
+              <button onclick="copyBidNo('R26BK01638676')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>4,684 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-31 11:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638676%202026%ED%95%99%EB%85%84%EB%8F%84%20%ED%98%B8%EB%82%A8%EC%A4%91%ED%95%99%EA%B5%90%20%ED%85%8C%EB%A7%88%EC%8B%9D%ED%98%84%EC%9E%A5%EC%B2%B4%ED%97%98%ED%95%99%EC%8A%B5%28%EC%88%98%ED%95%99%EC%97%AC%ED%96%89%29%20%EC%9C%84%ED%83%81%EC%9A%A9%EC%97%AD%20%EC%9E%85%EC%B0%B0%20%EA%B3%B5%EA%B3%A0%28%EC%9E%AC%EA%B3%B5%EA%B3%A0%29" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">한국인터넷진흥원</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638809%20%EA%B3%B5%EA%B8%89%EB%A7%9D%20%EB%B3%B4%EC%95%88%20%EB%AA%A8%EB%8D%B8%20%EA%B5%AC%EC%B6%95%20%EC%A7%80%EC%9B%90%EC%82%AC%EC%97%85%20%ED%9A%8C%EA%B3%84%EA%B0%90%EC%82%AC" target="_blank" class="title-link">
+              공급망 보안 모델 구축 지원사업 회계감사
+            </a>
+            <div class="tags-list">#구축</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638809</strong> 
+              <button onclick="copyBidNo('R26BK01638809')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>1,909 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-safe">진행중</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;"></div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638809%20%EA%B3%B5%EA%B8%89%EB%A7%9D%20%EB%B3%B4%EC%95%88%20%EB%AA%A8%EB%8D%B8%20%EA%B5%AC%EC%B6%95%20%EC%A7%80%EC%9B%90%EC%82%AC%EC%97%85%20%ED%9A%8C%EA%B3%84%EA%B0%90%EC%82%AC" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">한국농어촌공사 경북</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638811%20%EC%82%B0%EC%96%91%EB%A9%B4%20%EA%B8%B0%EC%B4%88%EC%83%9D%ED%99%9C%EA%B1%B0%EC%A0%90%EC%A1%B0%EC%84%B1%EC%82%AC%EC%97%85%20%EA%B8%B0%EB%B3%B8%EA%B3%84%ED%9A%8D%20%EC%88%98%EB%A6%BD%20%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              산양면 기초생활거점조성사업 기본계획 수립 용역
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638811</strong> 
+              <button onclick="copyBidNo('R26BK01638811')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>2.2 억원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-20 14:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638811%20%EC%82%B0%EC%96%91%EB%A9%B4%20%EA%B8%B0%EC%B4%88%EC%83%9D%ED%99%9C%EA%B1%B0%EC%A0%90%EC%A1%B0%EC%84%B1%EC%82%AC%EC%97%85%20%EA%B8%B0%EB%B3%B8%EA%B3%84%ED%9A%8D%20%EC%88%98%EB%A6%BD%20%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">한국어촌어항공단</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638822%20%EA%B2%BD%EC%98%81%EC%84%B1%EA%B3%BC%20%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84%20%EA%B3%A0%EB%8F%84%ED%99%94%20%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              경영성과 관리체계 고도화 용역
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638822</strong> 
+              <button onclick="copyBidNo('R26BK01638822')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>2,000 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-20 10:30:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638822%20%EA%B2%BD%EC%98%81%EC%84%B1%EA%B3%BC%20%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84%20%EA%B3%A0%EB%8F%84%ED%99%94%20%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="선행개발/AI">
+          <td>
+            <span class="badge-org">학교안전공제중앙회</span>
+            <span class="badge-category cat-rd">선행개발/AI</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638582%20AI%EA%B8%B0%EB%B0%98%20%ED%95%99%EA%B5%90%EC%95%88%EC%A0%84%20%EC%82%AC%EA%B3%A0%EC%98%88%EC%B8%A1%EB%AA%A8%EB%8D%B8%20%EA%B0%9C%EB%B0%9C%20%EB%B0%8F%20%EC%A0%81%EC%9A%A9%EB%B0%A9%EC%95%88%20%EC%97%B0%EA%B5%AC%20%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              AI기반 학교안전 사고예측모델 개발 및 적용방안 연구 용역
+            </a>
+            <div class="tags-list">#AI #용역 #개발 #연구</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638582</strong> 
+              <button onclick="copyBidNo('R26BK01638582')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>8,000 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-safe">진행중</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;"></div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638582%20AI%EA%B8%B0%EB%B0%98%20%ED%95%99%EA%B5%90%EC%95%88%EC%A0%84%20%EC%82%AC%EA%B3%A0%EC%98%88%EC%B8%A1%EB%AA%A8%EB%8D%B8%20%EA%B0%9C%EB%B0%9C%20%EB%B0%8F%20%EC%A0%81%EC%9A%A9%EB%B0%A9%EC%95%88%20%EC%97%B0%EA%B5%AC%20%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">한국전기연구원</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638831%20AC%20DC%20Hybrid%20%EB%B0%B0%EC%A0%84%EB%A7%9D%20%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%B2%A0%EB%93%9C%20%EA%B5%AC%EC%B6%95%EC%9D%84%20%EC%9C%84%ED%95%9C%20%EC%82%AC%EC%9A%A9%EC%A0%84%EA%B2%80%EC%82%AC%20%EB%8C%80%EC%9D%91%EB%B0%A9%EC%95%88%20%EB%8F%84%EC%B6%9C" target="_blank" class="title-link">
+              AC DC Hybrid 배전망 테스트베드 구축을 위한 사용전검사 대응방안 도출
+            </a>
+            <div class="tags-list">#구축</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638831</strong> 
+              <button onclick="copyBidNo('R26BK01638831')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>3,636 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-29 11:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638831%20AC%20DC%20Hybrid%20%EB%B0%B0%EC%A0%84%EB%A7%9D%20%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%B2%A0%EB%93%9C%20%EA%B5%AC%EC%B6%95%EC%9D%84%20%EC%9C%84%ED%95%9C%20%EC%82%AC%EC%9A%A9%EC%A0%84%EA%B2%80%EC%82%AC%20%EB%8C%80%EC%9D%91%EB%B0%A9%EC%95%88%20%EB%8F%84%EC%B6%9C" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">한국인터넷진흥원</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638806%20%EC%96%91%EC%9E%90%EB%82%B4%EC%84%B1%EC%95%94%ED%98%B8%20%EC%A0%84%ED%99%98%20%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C%C2%B7%ED%95%B4%EC%BB%A4%ED%86%A4%20%EA%B8%B0%ED%9A%8D%20%EB%B0%8F%20%EC%9A%B4%EC%98%81" target="_blank" class="title-link">
+              양자내성암호 전환 경진대회·해커톤 기획 및 운영
+            </a>
+            <div class="tags-list">#기획</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638806</strong> 
+              <button onclick="copyBidNo('R26BK01638806')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>9,090 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-safe">진행중</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;"></div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638806%20%EC%96%91%EC%9E%90%EB%82%B4%EC%84%B1%EC%95%94%ED%98%B8%20%EC%A0%84%ED%99%98%20%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C%C2%B7%ED%95%B4%EC%BB%A4%ED%86%A4%20%EA%B8%B0%ED%9A%8D%20%EB%B0%8F%20%EC%9A%B4%EC%98%81" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">재단법인대전정보문화</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638796%20K-DEX%202026%28Korea%20International%20Army%20Defense%20Exhibition%29%20%EA%B8%B0%EC%97%85%EA%B3%B5%EB%8F%99%EA%B4%80%20%EA%B5%AC%EC%B6%95%20%EB%B0%8F%20%EC%9A%B4%EC%98%81%20%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              K-DEX 2026(Korea International Army Defense Exhibition) 기업공동관 구축 및 운영 용역
+            </a>
+            <div class="tags-list">#용역 #구축</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638796</strong> 
+              <button onclick="copyBidNo('R26BK01638796')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>6,203 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-31 16:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638796%20K-DEX%202026%28Korea%20International%20Army%20Defense%20Exhibition%29%20%EA%B8%B0%EC%97%85%EA%B3%B5%EB%8F%99%EA%B4%80%20%EA%B5%AC%EC%B6%95%20%EB%B0%8F%20%EC%9A%B4%EC%98%81%20%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">재단법인 대구디지털</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638742%202026%EB%85%84%20%EB%8C%80%EA%B5%AC%20%EC%BD%98%ED%85%90%EC%B8%A0%20%EC%8A%A4%EC%BC%80%EC%9D%BC%EC%97%85%20%EC%95%A1%EC%85%80%EB%9F%AC%EB%A0%88%EC%9D%B4%ED%8C%85%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%20%EC%9A%B4%EC%98%81%20%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              2026년 대구 콘텐츠 스케일업 액셀러레이팅 프로그램 운영 용역
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638742</strong> 
+              <button onclick="copyBidNo('R26BK01638742')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>4,359 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-safe">진행중</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;"></div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638742%202026%EB%85%84%20%EB%8C%80%EA%B5%AC%20%EC%BD%98%ED%85%90%EC%B8%A0%20%EC%8A%A4%EC%BC%80%EC%9D%BC%EC%97%85%20%EC%95%A1%EC%85%80%EB%9F%AC%EB%A0%88%EC%9D%B4%ED%8C%85%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%20%EC%9A%B4%EC%98%81%20%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">서울특별시교육청</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01632456%20%5B%EA%B8%B4%EA%B8%89%5D%20%EC%84%9C%EC%9A%B8%EA%B5%90%EC%9C%A1%2070%EB%85%84%20%EA%B8%B0%EB%85%90%20%EC%82%AC%EC%97%85%20%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              [긴급] 서울교육 70년 기념 사업 용역
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01632456</strong> 
+              <button onclick="copyBidNo('R26BK01632456')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>1.7 억원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-31 11:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01632456%20%5B%EA%B8%B4%EA%B8%89%5D%20%EC%84%9C%EC%9A%B8%EA%B5%90%EC%9C%A1%2070%EB%85%84%20%EA%B8%B0%EB%85%90%20%EC%82%AC%EC%97%85%20%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">경상북도교육청 경상</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01624713%202026%ED%95%99%EB%85%84%EB%8F%84%20%EC%9E%A5%ED%9D%A5%EC%A4%91%ED%95%99%EA%B5%90%20%EC%88%98%ED%95%99%EC%97%AC%ED%96%89%20%EC%9C%84%ED%83%81%EC%9A%A9%EC%97%AD%20%EC%9E%85%EC%B0%B0%20%EA%B3%B5%EA%B3%A0" target="_blank" class="title-link">
+              2026학년도 장흥중학교 수학여행 위탁용역 입찰 공고
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01624713</strong> 
+              <button onclick="copyBidNo('R26BK01624713')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>8,493 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-31 14:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01624713%202026%ED%95%99%EB%85%84%EB%8F%84%20%EC%9E%A5%ED%9D%A5%EC%A4%91%ED%95%99%EA%B5%90%20%EC%88%98%ED%95%99%EC%97%AC%ED%96%89%20%EC%9C%84%ED%83%81%EC%9A%A9%EC%97%AD%20%EC%9E%85%EC%B0%B0%20%EA%B3%B5%EA%B3%A0" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">한국산업인력공단</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638853%20%EA%B3%BC%EC%A0%95%ED%8F%89%EA%B0%80%ED%98%95%20%EA%B5%AD%EA%B0%80%EA%B8%B0%EC%88%A0%EC%9E%90%EA%B2%A9%20%EC%99%B8%EB%B6%80%ED%8F%89%EA%B0%80%20%EC%88%98%EC%88%98%EB%A3%8C%20%EB%8F%84%EC%9E%85%20%EC%97%B0%EA%B5%AC%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              과정평가형 국가기술자격 외부평가 수수료 도입 연구용역
+            </a>
+            <div class="tags-list">#용역 #연구</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638853</strong> 
+              <button onclick="copyBidNo('R26BK01638853')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>4,818 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-20 12:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638853%20%EA%B3%BC%EC%A0%95%ED%8F%89%EA%B0%80%ED%98%95%20%EA%B5%AD%EA%B0%80%EA%B8%B0%EC%88%A0%EC%9E%90%EA%B2%A9%20%EC%99%B8%EB%B6%80%ED%8F%89%EA%B0%80%20%EC%88%98%EC%88%98%EB%A3%8C%20%EB%8F%84%EC%9E%85%20%EC%97%B0%EA%B5%AC%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="선행개발/AI">
+          <td>
+            <span class="badge-org">성균관대학교 자연과</span>
+            <span class="badge-category cat-rd">선행개발/AI</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638624%20%EC%83%9D%EC%84%B1%ED%98%95AI%EA%B8%B0%EC%B4%88%20MOOC%20%EA%B0%95%EC%A2%8C%20%EC%98%A8%EB%9D%BC%EC%9D%B8%20%EC%BD%98%ED%85%90%EC%B8%A0%20%EC%A0%9C%EC%9E%91" target="_blank" class="title-link">
+              생성형AI기초 MOOC 강좌 온라인 콘텐츠 제작
+            </a>
+            <div class="tags-list">#AI</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638624</strong> 
+              <button onclick="copyBidNo('R26BK01638624')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>4,545 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-safe">진행중</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;"></div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638624%20%EC%83%9D%EC%84%B1%ED%98%95AI%EA%B8%B0%EC%B4%88%20MOOC%20%EA%B0%95%EC%A2%8C%20%EC%98%A8%EB%9D%BC%EC%9D%B8%20%EC%BD%98%ED%85%90%EC%B8%A0%20%EC%A0%9C%EC%9E%91" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">부산광역시 서구</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638557%202026%EB%85%84%20%EC%84%9C%EA%B5%AC%20%ED%9D%AC%EB%A7%9D%EC%9D%98%20%EB%B9%9B%EA%B1%B0%EB%A6%AC%20%EC%A1%B0%EC%84%B1%20%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              2026년 서구 희망의 빛거리 조성 용역
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638557</strong> 
+              <button onclick="copyBidNo('R26BK01638557')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>2.1 억원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-safe">진행중</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;"></div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638557%202026%EB%85%84%20%EC%84%9C%EA%B5%AC%20%ED%9D%AC%EB%A7%9D%EC%9D%98%20%EB%B9%9B%EA%B1%B0%EB%A6%AC%20%EC%A1%B0%EC%84%B1%20%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">삼성면 원도심 자율</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01597829%20%EC%82%BC%EC%84%B1%EB%A9%B4%EC%9B%90%EB%8F%84%EC%8B%AC%EC%9E%90%EC%9C%A8%EC%83%81%EA%B6%8C%EC%A1%B0%ED%95%A9_%EC%8A%A4%ED%83%80%EC%A0%90%ED%8F%AC%EC%9C%A1%EC%84%B1%EC%A7%80%EC%9B%90%20%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              삼성면원도심자율상권조합_스타점포육성지원 용역
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01597829</strong> 
+              <button onclick="copyBidNo('R26BK01597829')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>7,545 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-safe">진행중</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;"></div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01597829%20%EC%82%BC%EC%84%B1%EB%A9%B4%EC%9B%90%EB%8F%84%EC%8B%AC%EC%9E%90%EC%9C%A8%EC%83%81%EA%B6%8C%EC%A1%B0%ED%95%A9_%EC%8A%A4%ED%83%80%EC%A0%90%ED%8F%AC%EC%9C%A1%EC%84%B1%EC%A7%80%EC%9B%90%20%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="용역입찰">
+          <td>
+            <span class="badge-org">(재)한국정신문화재</span>
+            <span class="badge-category cat-bid">용역입찰</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638807%20%EC%95%88%EB%8F%99%EA%B5%AD%EC%A0%9C%ED%83%88%EC%B6%A4%ED%8E%98%EC%8A%A4%ED%8B%B0%EB%B2%8C%202026%20%ED%83%88%EC%B6%A4%EC%8B%9D%EB%8B%B9%20%EC%9A%B4%EC%98%81%20%EC%9A%A9%EC%97%AD%20%EC%9E%85%EC%B0%B0%EA%B3%B5%EA%B3%A0%5B%EA%B8%B4%EA%B8%89%5D" target="_blank" class="title-link">
+              안동국제탈춤페스티벌 2026 탈춤식당 운영 용역 입찰공고[긴급]
+            </a>
+            <div class="tags-list">#용역</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638807</strong> 
+              <button onclick="copyBidNo('R26BK01638807')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>4.1 억원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-31 17:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638807%20%EC%95%88%EB%8F%99%EA%B5%AD%EC%A0%9C%ED%83%88%EC%B6%A4%ED%8E%98%EC%8A%A4%ED%8B%B0%EB%B2%8C%202026%20%ED%83%88%EC%B6%A4%EC%8B%9D%EB%8B%B9%20%EC%9A%B4%EC%98%81%20%EC%9A%A9%EC%97%AD%20%EC%9E%85%EC%B0%B0%EA%B3%B5%EA%B3%A0%5B%EA%B8%B4%EA%B8%89%5D" target="_blank" class="btn-action">공고문 열기 ↗</a>
+          </td>
+        </tr>
+        <tr data-category="소부장/공정">
+          <td>
+            <span class="badge-org">재단법인강원테크노파</span>
+            <span class="badge-category cat-rd">소부장/공정</span>
+          </td>
+          <td class="title-cell">
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638857%202026%EB%85%84%20%EA%B0%95%EC%9B%90%EC%97%B0%EA%B5%AC%EC%9E%A5%EB%B9%84%EC%A2%85%ED%95%A9%EC%A0%95%EB%B3%B4%EB%A7%9D%28G-EQNET%29%20%EA%B3%A0%EB%8F%84%ED%99%94%20%EB%B0%8F%20%EA%B0%9C%ED%8E%B8%20%EC%9A%A9%EC%97%AD" target="_blank" class="title-link">
+              2026년 강원연구장비종합정보망(G-EQNET) 고도화 및 개편 용역
+            </a>
+            <div class="tags-list">#장비 #용역 #연구</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">
+              공고번호: <strong style="color:#0f766e;">R26BK01638857</strong> 
+              <button onclick="copyBidNo('R26BK01638857')" style="margin-left:6px; padding:2px 8px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#f8fafc;">번호복사</button>
+            </div>
+          </td>
+          <td><strong>6,363 만원</strong><br><span style="font-size:12px; color:#64748b;">(추정가격)</span></td>
+          <td>
+            <span class="dday-tag dday-urgent">마감</span>
+            <div style="font-size:12px; color:#64748b; margin-top:2px;">2026-07-31 10:00:00</div>
+          </td>
+          <td>
+            <a href="https://search.naver.com/search.naver?query=%EB%82%98%EB%9D%BC%EC%9E%A5%ED%84%B0%20R26BK01638857%202026%EB%85%84%20%EA%B0%95%EC%9B%90%EC%97%B0%EA%B5%AC%EC%9E%A5%EB%B9%84%EC%A2%85%ED%95%A9%EC%A0%95%EB%B3%B4%EB%A7%9D%28G-EQNET%29%20%EA%B3%A0%EB%8F%84%ED%99%94%20%EB%B0%8F%20%EA%B0%9C%ED%8E%B8%20%EC%9A%A9%EC%97%AD" target="_blank" class="btn-action">공고문 열기 ↗</a>
           </td>
         </tr>
       </tbody>
@@ -435,29 +2326,15 @@
   </footer>
 </div>
 
-
 <script>
-  function copyBidNo(text) {
-    if (!text) return;
-    navigator.clipboard.writeText(text).then(() => {
-      alert("공고번호 [" + text + "] 가 복사되었습니다!
-나라장터에서 바로 검색하실 수 있습니다.");
-    }).catch(() => {
-      prompt("아래 공고번호를 복사하세요:", text);
-    });
-  }
-
-  function filterTable(category, btnElement) {
+  function filterTable(category) {
     const buttons = document.querySelectorAll('.tag-btn');
     buttons.forEach(btn => btn.classList.remove('active'));
-    if (btnElement) {
-      btnElement.classList.add('active');
-    }
+    event.target.classList.add('active');
 
     const rows = document.querySelectorAll('#announcementTable tbody tr');
     rows.forEach(row => {
-      const rowCat = row.getAttribute('data-category');
-      if (category === 'all' || rowCat === category) {
+      if (category === 'all' || row.getAttribute('data-category') === category) {
         row.style.display = '';
       } else {
         row.style.display = 'none';
@@ -475,7 +2352,6 @@
     });
   }
 </script>
-
 
 </body>
 </html>

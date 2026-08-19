@@ -3,18 +3,19 @@ import requests
 import urllib.parse
 from datetime import datetime, timedelta
 import re
+import xml.etree.ElementTree as ET
 
-# 1. 공공데이터포털 인증키 처리
+# 1. API 키 처리
 SERVICE_KEY = os.getenv("G2B_API_KEY", "").strip()
 if "%" in SERVICE_KEY:
     SERVICE_KEY = urllib.parse.unquote(SERVICE_KEY)
 
 # 2. 엔지코릭스 선행개발Lab 관심 키워드
 CATEGORY_RULES = {
-    "선행개발/AI": ["AI", "인공지능", "LLM", "머신러닝", "알고리즘", "지능형"],
+    "선행개발/AI": ["AI", "인공지능", "LLM", "머신러닝", "알고리즘", "지능형", "데이터", "플랫폼"],
     "소부장/공정": ["소부장", "소재", "부품", "장비", "스마트", "공정", "반도체", "센서", "배터리", "이차전지", "제조"],
     "바이오/신소재": ["바이오", "헬스", "의료", "신소재", "화학"],
-    "용역입찰": ["용역", "ISP", "구축", "유지보수", "플랫폼", "데이터", "시스템", "소프트웨어", "SW", "개발", "연구", "실증"]
+    "용역입찰": ["용역", "ISP", "구축", "유지보수", "시스템", "소프트웨어", "SW", "개발", "연구", "실증", "기획"]
 }
 
 ALL_KEYWORDS = [kw for kws in CATEGORY_RULES.values() for kw in kws]
@@ -46,84 +47,91 @@ def calculate_dday(close_dt_str):
         pass
     return "진행중", "dday-safe"
 
-def fetch_real_bids():
+def fetch_g2b_data():
     today = datetime.today()
-    # 최근 30일간 공고 조회
     start_date = (today - timedelta(days=30)).strftime("%Y%m%d0000")
     end_date = today.strftime("%Y%m%d2359")
     
-    url = "https://apis.data.go.kr/1230000/BidPublicInfoService04/getBidPblancListInfoServcPPSSrch01"
-    params = {
-        "serviceKey": SERVICE_KEY,
-        "numOfRows": "100",
-        "pageNo": "1",
-        "inqryDiv": "1",
-        "inqryBgnDt": start_date,
-        "inqryEndDt": end_date,
-        "type": "json"
-    }
+    # 조달청 나라장터 최신/구버전 엔드포인트 동시 대응
+    urls = [
+        "https://apis.data.go.kr/1230000/BidPublicInfoService04/getBidPblancListInfoServcPPSSrch01",
+        "https://apis.data.go.kr/1230000/ad/BidPublicInfoService/getBidPblancListInfoServcPPSSrch"
+    ]
     
     items = []
     if not SERVICE_KEY:
-        print("API 키가 설정되지 않았습니다.")
         return items
 
-    try:
-        res = requests.get(url, params=params, timeout=15)
-        data = res.json()
-        raw_items = data.get("response", {}).get("body", {}).get("items", [])
-        
-        if isinstance(raw_items, dict):
-            raw_items = [raw_items]
-
-        for item in raw_items:
-            bid_name = item.get("bidNtceNm", "")
-            matched = [k for k in ALL_KEYWORDS if k.lower() in bid_name.lower()]
+    for url in urls:
+        try:
+            params = {
+                "serviceKey": SERVICE_KEY,
+                "numOfRows": "100",
+                "pageNo": "1",
+                "inqryDiv": "1",
+                "inqryBgnDt": start_date,
+                "inqryEndDt": end_date,
+                "type": "json"
+            }
+            res = requests.get(url, params=params, timeout=10)
             
-            if matched:
-                category = classify_category(bid_name)
-                bid_no = item.get("bidNtceNo", "")
-                
-                # 네이버 통합검색 직통 링크 (차세대 나라장터 리다이렉트 우회용)
-                search_query = urllib.parse.quote(f"나라장터 {bid_no} {bid_name}")
-                portal_url = f"https://search.naver.com/search.naver?query={search_query}"
+            # JSON 응답 파싱
+            if "application/json" in res.headers.get("Content-Type", "") or res.text.strip().startswith("{"):
+                data = res.json()
+                raw_items = data.get("response", {}).get("body", {}).get("items", [])
+                if isinstance(raw_items, dict):
+                    raw_items = raw_items.get("item", [])
+                if isinstance(raw_items, dict):
+                    raw_items = [raw_items]
 
-                price = item.get("presmptPrce", 0)
-                try:
-                    price_val = float(price)
-                    if price_val >= 100000000:
-                        budget_str = f"{price_val / 100000000:.1f} 억원"
-                    elif price_val > 0:
-                        budget_str = f"{int(price_val / 10000):,} 만원"
-                    else:
-                        budget_str = "규격서 참조"
-                except Exception:
-                    budget_str = "규격서 참조"
+                for item in raw_items:
+                    bid_name = item.get("bidNtceNm", "")
+                    matched = [k for k in ALL_KEYWORDS if k.lower() in bid_name.lower()]
+                    if matched:
+                        category = classify_category(bid_name)
+                        bid_no = item.get("bidNtceNo", "")
+                        search_query = urllib.parse.quote(f"나라장터 {bid_no} {bid_name}")
+                        portal_url = f"https://search.naver.com/search.naver?query={search_query}"
 
-                close_dt = item.get("bidClseDt", "-")
-                dday_label, dday_class = calculate_dday(close_dt)
+                        price = item.get("presmptPrce", 0)
+                        try:
+                            price_val = float(price)
+                            if price_val >= 100000000:
+                                budget_str = f"{price_val / 100000000:.1f} 억원"
+                            elif price_val > 0:
+                                budget_str = f"{int(price_val / 10000):,} 만원"
+                            else:
+                                budget_str = "규격서 참조"
+                        except Exception:
+                            budget_str = "규격서 참조"
 
-                items.append({
-                    "org": item.get("dminsttNm") or item.get("orderInsttNm") or "조달청",
-                    "bid_no": bid_no,
-                    "category": category,
-                    "cat_class": "cat-rd" if "AI" in category or "소부장" in category else "cat-bid",
-                    "title": bid_name,
-                    "tags": " ".join([f"#{k}" for k in matched[:4]]),
-                    "budget": budget_str,
-                    "budget_sub": "(추정가격)",
-                    "close_date": close_dt,
-                    "dday_text": dday_label,
-                    "dday_class": dday_class,
-                    "url": portal_url
-                })
-    except Exception as e:
-        print(f"공고 수집 예외: {e}")
-        
+                        close_dt = item.get("bidClseDt", "-")
+                        dday_label, dday_class = calculate_dday(close_dt)
+
+                        items.append({
+                            "org": item.get("dminsttNm") or item.get("orderInsttNm") or "조달청",
+                            "bid_no": bid_no,
+                            "category": category,
+                            "cat_class": "cat-rd" if "AI" in category or "소부장" in category else "cat-bid",
+                            "title": bid_name,
+                            "tags": " ".join([f"#{k}" for k in matched[:4]]),
+                            "budget": budget_str,
+                            "budget_sub": "(추정가격)",
+                            "close_date": close_dt,
+                            "dday_text": dday_label,
+                            "dday_class": dday_class,
+                            "url": portal_url
+                        })
+            
+            if items:
+                break
+        except Exception as e:
+            print(f"API 요청 실패 ({url}): {e}")
+
     return items
 
 def update_html():
-    bids = fetch_real_bids()
+    bids = fetch_g2b_data()
     print(f"실제 공고 수집 결과: {len(bids)}건")
 
     template_file = "engicorix_tender_dashboard.html"
@@ -141,14 +149,14 @@ def update_html():
     urgent_cnt = sum(1 for b in bids if "urgent" in b["dday_class"])
     ai_cnt = sum(1 for b in bids if b["category"] in ["선행개발/AI", "소부장/공정"])
 
-    # 상단 메타데이터 치환
+    # 상단 숫자 카드 동기화
     html = re.sub(r'class="value text-blue">.*?<span', f'class="value text-blue">{total_cnt} <span', html)
     html = re.sub(r'class="value text-red">.*?<span', f'class="value text-red">{urgent_cnt} <span', html)
     html = re.sub(r'color:var\(--accent-purple\);">(.*?)<span', f'color:var(--accent-purple);">{ai_cnt} <span', html)
     html = re.sub(r'기준 주차:.*?</div>', f'기준 주차:</strong> {week_str}</div>', html)
     html = re.sub(r'최근 동기화:.*?</div>', f'최근 동기화:</strong> {now_str} (매주 자동 갱신)</div>', html)
 
-    # 실제 수집된 공고 행 생성
+    # 테이블 행 생성
     if bids:
         rows_html = ""
         for b in bids:
@@ -181,66 +189,15 @@ def update_html():
         rows_html = """
         <tr>
           <td colspan="5" style="text-align:center; padding:40px; color:#64748b;">
-            현재 수집된 신규 관심 공고가 없거나 API 동기화 중입니다.
+            현재 수집된 신규 관심 공고가 없거나 공공데이터포털 동기화 중입니다.
           </td>
         </tr>"""
 
-    # 테이블 본문 교체
     html = re.sub(r'<tbody>.*?</tbody>', f'<tbody>{rows_html}\n      </tbody>', html, flags=re.DOTALL)
-
-    # JavaScript 삽입
-    js_script = """
-<script>
-  function copyBidNo(text) {
-    if (!text) return;
-    navigator.clipboard.writeText(text).then(() => {
-      alert("공고번호 [" + text + "] 가 복사되었습니다!\\n나라장터에서 바로 검색하실 수 있습니다.");
-    }).catch(() => {
-      prompt("아래 공고번호를 복사하세요:", text);
-    });
-  }
-
-  function filterTable(category, btnElement) {
-    const buttons = document.querySelectorAll('.tag-btn');
-    buttons.forEach(btn => btn.classList.remove('active'));
-    if (btnElement) {
-      btnElement.classList.add('active');
-    }
-
-    const rows = document.querySelectorAll('#announcementTable tbody tr');
-    rows.forEach(row => {
-      const rowCat = row.getAttribute('data-category');
-      if (category === 'all' || rowCat === category) {
-        row.style.display = '';
-      } else {
-        row.style.display = 'none';
-      }
-    });
-  }
-
-  function searchTable() {
-    const input = document.getElementById('searchInput').value.toLowerCase();
-    const rows = document.querySelectorAll('#announcementTable tbody tr');
-
-    rows.forEach(row => {
-      const text = row.innerText.toLowerCase();
-      row.style.display = text.includes(input) ? '' : 'none';
-    });
-  }
-</script>
-"""
-    html = html.replace("onclick=\"filterTable('all')\"", "onclick=\"filterTable('all', this)\"")
-    html = html.replace("onclick=\"filterTable('AI')\"", "onclick=\"filterTable('선행개발/AI', this)\"")
-    html = html.replace("onclick=\"filterTable('제조/소부장')\"", "onclick=\"filterTable('소부장/공정', this)\"")
-    html = html.replace("onclick=\"filterTable('바이오')\"", "onclick=\"filterTable('바이오/신소재', this)\"")
-    html = html.replace("onclick=\"filterTable('용역입찰')\"", "onclick=\"filterTable('용역입찰', this)\"")
-
-    if "<script>" in html:
-        html = re.sub(r'<script>.*?</script>', js_script, html, flags=re.DOTALL)
 
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(html)
-    print("실제 공고 index.html 생성 완료!")
+    print("배포 완료!")
 
 if __name__ == "__main__":
     update_html()
