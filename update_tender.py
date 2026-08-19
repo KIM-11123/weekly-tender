@@ -47,10 +47,11 @@ def calculate_dday(close_dt_str):
 
 def fetch_g2b_data():
     today = datetime.today()
-    start_date = (today - timedelta(days=30)).strftime("%Y%m%d0000")
+    # 30일 대신 최근 7일치로 축소하여 타임아웃 방지
+    start_date = (today - timedelta(days=7)).strftime("%Y%m%d0000")
     end_date = today.strftime("%Y%m%d2359")
     
-    # 조달청 입찰공고정보서비스 용역 조회 엔드포인트
+    # 조달청 입찰공고정보서비스 엔드포인트
     urls = [
         "https://apis.data.go.kr/1230000/BidPublicInfoService04/getBidPblancListInfoServcPPSSrch01",
         "https://apis.data.go.kr/1230000/ad/BidPublicInfoService/getBidPblancListInfoServcPPSSrch"
@@ -58,29 +59,34 @@ def fetch_g2b_data():
     
     items = []
     if not SERVICE_KEY:
-        print("[경고] G2B_API_KEY 환경변수가 설정되지 않았습니다.")
+        print("❌ [경고] G2B_API_KEY 환경변수가 비어있습니다.")
         return items
+
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "Accept": "application/json"
+    }
 
     for url in urls:
         try:
             params = {
                 "serviceKey": SERVICE_KEY,
-                "numOfRows": "100",
+                "numOfRows": "50", # 조회 건수를 50건으로 조절하여 응답 속도 확보
                 "pageNo": "1",
                 "inqryDiv": "1",
                 "inqryBgnDt": start_date,
                 "inqryEndDt": end_date,
                 "type": "json"
             }
-            res = requests.get(url, params=params, timeout=10)
+            # timeout을 30초로 증가
+            res = requests.get(url, params=params, headers=headers, timeout=30)
             
-            # API 응답 검증
             if res.status_code != 200:
-                print(f"[HTTP 에러] {res.status_code}: {url}")
+                print(f"⚠️ HTTP 상태코드 {res.status_code}: {url}")
                 continue
 
             if not res.text.strip().startswith("{"):
-                print(f"[응답 오류/인증 에러] XML/Text 반환됨: {res.text[:150]}")
+                print(f"⚠️ JSON 형식이 아님:\n{res.text[:200]}")
                 continue
 
             data = res.json()
@@ -128,7 +134,7 @@ def fetch_g2b_data():
                         "dday_class": dday_class,
                         "url": portal_url
                     })
-            
+
             if items:
                 break
         except Exception as e:
