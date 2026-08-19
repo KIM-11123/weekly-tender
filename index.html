@@ -456,6 +456,14 @@
       row.style.display = text.includes(input) ? '' : 'none';
     });
   }
+
+  function copyBidNo(bidNo) {
+    navigator.clipboard.writeText(bidNo).then(() => {
+      alert('공고번호가 복사되었습니다: ' + bidNo);
+    }).catch(err => {
+      console.error('복사 실패:', err);
+    });
+  }
 </script>
 
 </body>
